@@ -14,6 +14,8 @@ public class CrosshairBehaviour : MonoBehaviour
     private void Awake()
     {
         playerTransform = playerController.transform;
+
+        transform.SetParent(transform.parent, true);
     }
 
     private void Update()

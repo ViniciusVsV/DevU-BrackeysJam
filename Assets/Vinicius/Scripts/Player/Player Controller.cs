@@ -10,9 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float invulnerabilityDuration;
     private float invulnerabilityTimer;
 
+    [Header("-----Knockback-----")]
+    [SerializeField] private float knockbackStrength;
+    private Vector2 KnockbackDirection;
+
     [Header("-----Movement-----")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveDamping;
     private Vector2 moveDirection;
+    private Vector2 moveToApply;
+
     private bool isFacingRight;
     private Rigidbody2D rb;
 
@@ -59,7 +66,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = moveDirection.normalized * moveSpeed;
+        Vector2 moveStrength = moveDirection.normalized * moveSpeed;
+        moveStrength += moveToApply;
+
+        moveToApply /= moveDamping;
+
+        if (Mathf.Abs(moveToApply.x) <= 0.01f && Mathf.Abs(moveToApply.y) <= 0.01f)
+            moveToApply = Vector2.zero;
+
+        rb.linearVelocity = moveStrength;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -101,31 +116,37 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle"))
-            TakeDamage(false, null);
-
-        else if (other.CompareTag("Boss"))
-            TakeDamage(true, other.gameObject);
+        if (other.CompareTag("Obstacle") || other.CompareTag("Boss"))
+            TakeDamage(other.transform);
     }
 
     //Ao tomar dano por contato do boss, fazer ele tomar um knockback para longe do boss
     //A otomar dano, dar ao jogar um pequeno tempo de invulnerabilidade
-    private void TakeDamage(bool hasKnockback, GameObject other)
+    private void TakeDamage(Transform otherPosition)
     {
         if (invulnerabilityTimer > Mathf.Epsilon)
+        {
+            TakeKnockback(otherPosition);
             return;
+        }
 
         invulnerabilityTimer = invulnerabilityDuration;
+
+        PlayerDamagedEffect.Instance.ApplyEffect(gameObject, invulnerabilityDuration);
 
         currentHealth--;
 
         if (currentHealth <= 0)
             Die();
+        else
+            TakeKnockback(otherPosition);
+    }
 
-        else if (hasKnockback)
-        {
-            //aplica um knockback
-        }
+    private void TakeKnockback(Transform otherPosition)
+    {
+        KnockbackDirection = (transform.position - otherPosition.position).normalized;
+
+        moveToApply += KnockbackDirection * knockbackStrength;
     }
 
     private void Die()
