@@ -9,10 +9,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private int currentHealth;
     [SerializeField] private float invulnerabilityDuration;
     private float invulnerabilityTimer;
-
-    [Header("-----Knockback-----")]
     [SerializeField] private float knockbackStrength;
-    private Vector2 KnockbackDirection;
 
     [Header("-----Movement-----")]
     [SerializeField] private float moveSpeed;
@@ -24,13 +21,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
 
     [Header("-----Shoot-----")]
-    [SerializeField] private float shootCooldown;
-    private float shootCooldownTimer;
-    [SerializeField] private Transform projectileSpawnPoint;
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform crosshairPosition;
-    private Vector2 shootDirection;
-    private Quaternion shootRotation;
+    [SerializeField] private PlayerWeapon playerWeapon;
     [HideInInspector] public Vector2 lookDirection;
     private bool isShooting;
 
@@ -47,21 +38,11 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (shootCooldownTimer > Mathf.Epsilon)
-            shootCooldownTimer -= Time.deltaTime;
-
         if (invulnerabilityTimer > Mathf.Epsilon)
             invulnerabilityTimer -= Time.deltaTime;
 
-        if (isShooting && shootCooldownTimer <= Mathf.Epsilon)
-        {
-            shootDirection = (crosshairPosition.position - transform.position).normalized;
-            shootRotation = Quaternion.LookRotation(Vector3.forward, shootDirection);
-
-            shootCooldownTimer = shootCooldown;
-
-            Instantiate(projectilePrefab, projectileSpawnPoint.position, shootRotation);
-        }
+        if (isShooting)
+            playerWeapon.Shoot();
     }
 
     private void FixedUpdate()
@@ -120,35 +101,30 @@ public class PlayerController : MonoBehaviour, IDamageable
             TakeDamage(1, (transform.position - other.transform.position).normalized);
     }
 
-    //Ao tomar dano por contato do boss, fazer ele tomar um knockback para longe do boss
-    //A otomar dano, dar ao jogar um pequeno tempo de invulnerabilidade
     public void TakeDamage(int damage, Vector2 direction)
     {
         if (invulnerabilityTimer > Mathf.Epsilon)
         {
-            TakeKnockback(direction);
+            moveToApply += direction * knockbackStrength;
             return;
         }
 
         invulnerabilityTimer = invulnerabilityDuration;
 
-        PlayerDamagedEffect.Instance.ApplyEffect(gameObject, invulnerabilityDuration);
+        PlayerDamagedEffect.Instance.ApplyEffect(gameObject, invulnerabilityDuration, direction);
 
         currentHealth -= damage;
 
         if (currentHealth <= 0)
             Die();
         else
-            TakeKnockback(direction);
-    }
-
-    private void TakeKnockback(Vector2 knockbackDirection)
-    {
-        moveToApply += knockbackDirection * knockbackStrength;
+            moveToApply += direction * knockbackStrength;
     }
 
     private void Die()
     {
         Destroy(gameObject);
     }
+
+    public PlayerWeapon GetWeapon(){ return playerWeapon; }
 }

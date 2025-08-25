@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5219795549870629728}
+  - component: {fileID: 6944289357636476477}
   m_Layer: 0
-  m_Name: Projectile Spawn Point
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8732229245694312827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6944289357636476477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432081147582751314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a8d4b16ec0d494d8d39244ba0ac730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCooldown: 0.3
+  cooldownLowerLimit: 0.05
+  currentCooldown: 0
+  baseProjectile: {fileID: 5166161720359047258, guid: 8032d14157dbb0f449bbdb4d6c31edae, type: 3}
+  crosshairPosition: {fileID: 10408427138543688}
 --- !u!1 &4421175600893057047
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,10 +284,7 @@ MonoBehaviour:
   knockbackStrength: 30
   moveSpeed: 10
   moveDamping: 1.2
-  shootCooldown: 0.1
-  projectileSpawnPoint: {fileID: 5219795549870629728}
-  projectilePrefab: {fileID: 5166161720359047258, guid: 8032d14157dbb0f449bbdb4d6c31edae, type: 3}
-  crosshairPosition: {fileID: 10408427138543688}
+  playerWeapon: {fileID: 6944289357636476477}
   lookDirection: {x: 0, y: 0}
   isOnController: 0
 --- !u!114 &32430193545905850

@@ -8,19 +8,14 @@ public class PlayerProjectileBehaviour : MonoBehaviour
     [SerializeField] private float lifeDuration;
     private Rigidbody2D rb;
 
-    [Header("-----Type Paramaters-----")]
-    [Header("-----Damage-----")]
-    [SerializeField] private float smgDamage;
-    [SerializeField] private float akDamage;
-
-    [Header("-----Sprite-----")]
-    [SerializeField] private float smgSprite;
-    [SerializeField] private float akSprite;
+    [Header("-----Paramaters-----")]
+    [SerializeField] private int damage;
+    [SerializeField] private Sprite sprite;
 
     [Header("-----Rumble Parameters-----")]
-    [SerializeField] private float lowFrequency = 0.5f;
-    [SerializeField] private float highFrequency = 0.5f;
-    [SerializeField] private float duration = 0.25f;
+    [SerializeField] private float lowFrequency;
+    [SerializeField] private float highFrequency;
+    [SerializeField] private float duration;
 
     private void Awake()
     {
@@ -42,6 +37,11 @@ public class PlayerProjectileBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Obstacle") || other.CompareTag("Boss"))
+        {
+            if (other.TryGetComponent<IDamageable>(out var damageable))
+                damageable.TakeDamage(damage, Vector2.zero);
+
             Destroy(gameObject);
+        }
     }
 }
