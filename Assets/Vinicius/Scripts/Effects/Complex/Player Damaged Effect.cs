@@ -8,6 +8,10 @@ public class PlayerDamagedEffect : MonoBehaviour
     [Header("-----Parameters-----")]
     [SerializeField] private float hitStopDuration;
 
+    [SerializeField] private float lowFrequency;
+    [SerializeField] private float highFrequency;
+    [SerializeField] private float rumbleDuration;
+
     private Coroutine coroutine;
 
     private void Awake()
@@ -28,6 +32,7 @@ public class PlayerDamagedEffect : MonoBehaviour
         SpriteFlash.Instance.ApplyEffect(gameObject);
         HitStop.Instance.ApplyEffect(hitStopDuration);
         CameraShake.Instance.ApplyEffect(false);
+        ControllerRumble.Instance.ApplyEffect(lowFrequency, highFrequency, rumbleDuration);
 
         yield return new WaitForSeconds(SpriteFlash.Instance.GetDuration());
 

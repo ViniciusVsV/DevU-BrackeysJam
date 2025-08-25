@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class CrosshairBehaviour : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
+    private PlayerController playerController;
     private Vector2 mousePosition;
     private Vector2 newPosition;
 
@@ -13,6 +13,8 @@ public class CrosshairBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        playerController = FindFirstObjectByType<PlayerController>();
+
         playerTransform = playerController.transform;
 
         transform.SetParent(transform.parent, true);

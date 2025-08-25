@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     [Header("-----Health-----")]
     [SerializeField] private int maxHealth;
@@ -117,16 +117,16 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Obstacle") || other.CompareTag("Boss"))
-            TakeDamage(other.transform);
+            TakeDamage(1, (transform.position - other.transform.position).normalized);
     }
 
     //Ao tomar dano por contato do boss, fazer ele tomar um knockback para longe do boss
     //A otomar dano, dar ao jogar um pequeno tempo de invulnerabilidade
-    private void TakeDamage(Transform otherPosition)
+    public void TakeDamage(int damage, Vector2 direction)
     {
         if (invulnerabilityTimer > Mathf.Epsilon)
         {
-            TakeKnockback(otherPosition);
+            TakeKnockback(direction);
             return;
         }
 
@@ -134,19 +134,17 @@ public class PlayerController : MonoBehaviour
 
         PlayerDamagedEffect.Instance.ApplyEffect(gameObject, invulnerabilityDuration);
 
-        currentHealth--;
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
             Die();
         else
-            TakeKnockback(otherPosition);
+            TakeKnockback(direction);
     }
 
-    private void TakeKnockback(Transform otherPosition)
+    private void TakeKnockback(Vector2 knockbackDirection)
     {
-        KnockbackDirection = (transform.position - otherPosition.position).normalized;
-
-        moveToApply += KnockbackDirection * knockbackStrength;
+        moveToApply += knockbackDirection * knockbackStrength;
     }
 
     private void Die()

@@ -8,6 +8,15 @@ public class PlayerProjectileBehaviour : MonoBehaviour
     [SerializeField] private float lifeDuration;
     private Rigidbody2D rb;
 
+    [Header("-----Type Paramaters-----")]
+    [Header("-----Damage-----")]
+    [SerializeField] private float smgDamage;
+    [SerializeField] private float akDamage;
+
+    [Header("-----Sprite-----")]
+    [SerializeField] private float smgSprite;
+    [SerializeField] private float akSprite;
+
     [Header("-----Rumble Parameters-----")]
     [SerializeField] private float lowFrequency = 0.5f;
     [SerializeField] private float highFrequency = 0.5f;
