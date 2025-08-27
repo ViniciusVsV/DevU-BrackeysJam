@@ -175,5 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84532b7794dd4f2448dbc62f63836d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customTimeScale: {fileID: 11400000, guid: f733f109579ecc440ad04080e2a327b7, type: 2}
   moveSpeed: 5
   direcaoMovimento: {x: 0, y: 0}
+  sr: {fileID: 0}

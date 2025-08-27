@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MovimentoInimigo : MonoBehaviour
 {
+    [SerializeField] private CustomTimeScale customTimeScale;
     [SerializeField] private float moveSpeed;
     private Rigidbody2D rb;
     [HideInInspector] public Vector2 direcaoMovimento;
@@ -18,15 +19,15 @@ public class MovimentoInimigo : MonoBehaviour
         {
             sr.flipX = true;
         }
-        
+
 
 
         Destroy(gameObject, 5);
     }
 
 
-    void FixedUpdate()  
+    void FixedUpdate()
     {
-        rb.linearVelocity = direcaoMovimento * moveSpeed;
+        rb.linearVelocity = customTimeScale.GetFixedDeltaTime() / Time.fixedDeltaTime * moveSpeed * direcaoMovimento;
     }
 }

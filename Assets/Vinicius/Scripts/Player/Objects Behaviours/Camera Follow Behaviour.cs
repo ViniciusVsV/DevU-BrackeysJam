@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class CameraFollowBehaviour : MonoBehaviour
 {
     private PlayerController playerController;
+    private Transform playerTransform;
+    private Vector2 playerDirection;
 
     [Header("-----Behaviour-----")]
     [SerializeField] private float maxDistance;
@@ -14,6 +16,7 @@ public class CameraFollowBehaviour : MonoBehaviour
     private void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
+        playerTransform = playerController.GetComponent<Transform>();
 
         transform.SetParent(transform.parent, true);
     }
@@ -21,7 +24,10 @@ public class CameraFollowBehaviour : MonoBehaviour
     private void Update()
     {
         if (playerController.isOnController)
-            transform.position = Vector2.zero + maxDistance * multiplier * playerController.lookDirection;
+        {
+            playerDirection = (playerTransform.position - transform.position).normalized;
+            transform.position = Vector2.zero + maxDistance * multiplier * playerDirection;
+        }
 
         else
         {
