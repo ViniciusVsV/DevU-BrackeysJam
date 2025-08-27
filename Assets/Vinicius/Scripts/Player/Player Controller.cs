@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Update()
     {
         if (invulnerabilityTimer > Mathf.Epsilon)
-            invulnerabilityTimer -= Time.deltaTime;
+            invulnerabilityTimer -= Time.unscaledDeltaTime;
 
         if (isShooting)
             playerWeapon.Shoot();

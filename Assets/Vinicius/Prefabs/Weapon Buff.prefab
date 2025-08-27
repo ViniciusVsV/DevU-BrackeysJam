@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newProjectile: {fileID: 5166161720359047258, guid: 284fb8cbccd28954b848eff5f811c860, type: 3}
-  cooldownMultiplier: 0.5
-  damageMultiplier: 2
-  buffDuration: 3
+  damageIncrease: 1
+  cooldownReduction: 0.07
+  numberOfRounds: 30
 --- !u!58 &371358551136158761
 CircleCollider2D:
   m_ObjectHideFlags: 0

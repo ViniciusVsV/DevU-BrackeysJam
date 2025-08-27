@@ -49,10 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   lifeDuration: 1
-  damage: 1
   sprite: {fileID: 0}
-  lowFrequency: 0.2
-  highFrequency: 0.2
+  lowFrequency: 0.3
+  highFrequency: 0.3
   duration: 0.15
 --- !u!50 &-1558388587179612970
 Rigidbody2D:

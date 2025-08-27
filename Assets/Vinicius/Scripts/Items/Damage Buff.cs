@@ -5,7 +5,8 @@ public class DamageBuff : MonoBehaviour
 {
     private PlayerWeapon playerWeapon;
 
-    [SerializeField] private float damageMultiplier = 1.2f;
+    [SerializeField] private CustomTimeScale customTimeScale;
+    [SerializeField] private int damageIncrease;
     [SerializeField] private float buffDuration;
 
     private Collider2D col;
@@ -24,7 +25,7 @@ public class DamageBuff : MonoBehaviour
             playerWeapon = other.GetComponent<PlayerController>().GetWeapon();
 
             if (playerWeapon != null)
-                Debug.Log("Mudar o dano porra!");
+                playerWeapon.BuffDamage(damageIncrease, buffDuration);
 
             Destroy(gameObject);
         }

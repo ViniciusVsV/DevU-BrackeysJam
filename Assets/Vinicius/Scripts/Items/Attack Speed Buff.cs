@@ -5,7 +5,7 @@ public class AttackSpeedBuff : MonoBehaviour
 {
     private PlayerWeapon playerWeapon;
 
-    [SerializeField] private float cooldownMultiplier = 0.8f;
+    [SerializeField] private float cooldownReduction;
     [SerializeField] private float buffDuration;
 
     private Collider2D col;
@@ -24,7 +24,7 @@ public class AttackSpeedBuff : MonoBehaviour
             playerWeapon = other.GetComponent<PlayerController>().GetWeapon();
 
             if (playerWeapon != null)
-                playerWeapon.ChangeCooldown(cooldownMultiplier, buffDuration);
+                playerWeapon.BuffCooldown(cooldownReduction, buffDuration);
 
             Destroy(gameObject);
         }

@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCooldown: 0.3
   cooldownLowerLimit: 0.05
-  currentCooldown: 0
+  baseDamage: 1
+  damageHigherLimit: 4
+  currentDamage: 0
   baseProjectile: {fileID: 5166161720359047258, guid: 8032d14157dbb0f449bbdb4d6c31edae, type: 3}
   crosshairPosition: {fileID: 10408427138543688}
 --- !u!1 &4421175600893057047
@@ -94,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e07069076373f42aceda569b583e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 3
+  maxDistance: 4
 --- !u!212 &279840296369573952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -227,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119991d81e4836e43884af16d79aaa6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 3
+  maxDistance: 2
   multiplier: 0.4
 --- !u!1 &9182971486334108793
 GameObject:

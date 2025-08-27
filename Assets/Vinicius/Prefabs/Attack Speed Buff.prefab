@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81adeee381e376e45b0a1083c41e3330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownMultiplier: 0.3
-  buffDuration: 5
+  cooldownReduction: 0.1
+  buffDuration: 4
 --- !u!58 &8488418583408763466
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43329967ca8fb43418e9aa741d5518fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 1.5
-  buffDuration: 3
+  damageIncrease: 1
+  buffDuration: 4
 --- !u!58 &7422168277019436069
 CircleCollider2D:
   m_ObjectHideFlags: 0

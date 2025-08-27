@@ -6,9 +6,9 @@ public class WeaponBuff : MonoBehaviour
     private PlayerWeapon playerWeapon;
 
     [SerializeField] private GameObject newProjectile;
-    [SerializeField] private float cooldownMultiplier = 0.8f;
-    [SerializeField] private float damageMultiplier = 1.2f;
-    [SerializeField] private float buffDuration;
+    [SerializeField] private int damageIncrease;
+    [SerializeField] private float cooldownReduction;
+    [SerializeField] private int numberOfRounds;
 
     private Collider2D col;
 
@@ -26,11 +26,7 @@ public class WeaponBuff : MonoBehaviour
             playerWeapon = other.GetComponent<PlayerController>().GetWeapon();
 
             if (playerWeapon != null)
-            {
-                playerWeapon.ChangeProjectile(newProjectile, buffDuration);
-                playerWeapon.ChangeCooldown(cooldownMultiplier, buffDuration);
-                //Mudar o dano
-            }
+                playerWeapon.BuffWeapon(newProjectile, damageIncrease, cooldownReduction, numberOfRounds);
 
             Destroy(gameObject);
         }

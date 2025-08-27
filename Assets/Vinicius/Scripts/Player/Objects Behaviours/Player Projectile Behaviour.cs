@@ -9,8 +9,8 @@ public class PlayerProjectileBehaviour : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("-----Paramaters-----")]
-    [SerializeField] private int damage;
     [SerializeField] private Sprite sprite;
+    private PlayerWeapon playerWeapon;
 
     [Header("-----Rumble Parameters-----")]
     [SerializeField] private float lowFrequency;
@@ -26,10 +26,12 @@ public class PlayerProjectileBehaviour : MonoBehaviour
 
     private void Start()
     {
+        playerWeapon = FindFirstObjectByType<PlayerWeapon>();
+
         ControllerRumble.Instance.ApplyEffect(lowFrequency, highFrequency, duration);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         rb.linearVelocity = transform.up * moveSpeed;
     }
@@ -39,7 +41,7 @@ public class PlayerProjectileBehaviour : MonoBehaviour
         if (other.CompareTag("Obstacle") || other.CompareTag("Boss"))
         {
             if (other.TryGetComponent<IDamageable>(out var damageable))
-                damageable.TakeDamage(damage, Vector2.zero);
+                damageable.TakeDamage(playerWeapon.currentDamage, Vector2.zero);
 
             Destroy(gameObject);
         }
