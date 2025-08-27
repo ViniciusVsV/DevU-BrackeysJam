@@ -42,11 +42,9 @@ public class RandomSpawner : MonoBehaviour
 
             float tempoDecorrido = Time.timeSinceLevelLoad;
 
-            // 2. Calcula o intervalo atual usando a fórmula de decaimento exponencial.
             float intervaloVariavel = (intervaloInicial - intervaloMinimo) * Mathf.Pow(fatorDeDificuldade, tempoDecorrido);
             float intervaloAtual = intervaloMinimo + intervaloVariavel;
 
-            // 3. Reinicia o cronômetro com o novo valor calculado.
             cronometroParaSpawn = intervaloAtual;
         }
     }
