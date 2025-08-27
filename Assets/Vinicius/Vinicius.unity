@@ -428,6 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatSpeed: 1
   floatAmplitude: 6
+  xPoint: {fileID: 1201008904}
 --- !u!4 &307477836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8860076629970235559, guid: d324b16be97330a4192784245760a51b, type: 3}
@@ -1651,7 +1652,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   approachSpeed: 15
-  targetPosition: {x: 0, y: 0}
   isFollowingPlayer: 0
 --- !u!1 &970525535
 GameObject:
