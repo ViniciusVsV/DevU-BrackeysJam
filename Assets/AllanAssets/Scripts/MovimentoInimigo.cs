@@ -14,13 +14,11 @@ public class MovimentoInimigo : MonoBehaviour
     }
     void Start()
     {
-        if (direcaoMovimento.x < Mathf.Epsilon)
+        if (sr != null && direcaoMovimento.x < Mathf.Epsilon)
         {
             sr.flipX = true;
         }
         
-
-
         Destroy(gameObject, 5);
     }
 

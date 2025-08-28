@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
 {
     public enum PosicaoDoSpawner { Cima, Baixo, Esquerda, Direita }
-    public GameObject prefab;
+    [SerializeField] private List<GameObject> listaDePrefabs;
 
     private BoxCollider2D areaDeSpawn;
 
@@ -25,6 +26,7 @@ public class RandomSpawner : MonoBehaviour
     void Awake()
     {
         areaDeSpawn = GetComponent<BoxCollider2D>();
+
     }
 
     private void Start()
@@ -51,6 +53,10 @@ public class RandomSpawner : MonoBehaviour
 
     void Spawn()
     {
+        int indiceAleatorio = Random.Range(0, listaDePrefabs.Count);
+
+        GameObject prefabSorteado = listaDePrefabs[indiceAleatorio];
+
         bounds = areaDeSpawn.bounds;
 
         direcaoMovimento = Vector2.zero;
@@ -83,7 +89,7 @@ public class RandomSpawner : MonoBehaviour
 
             }
 
-        GameObject novoInimigo = Instantiate(prefab, posicaoSpawn, Quaternion.identity);
+        GameObject novoInimigo = Instantiate(prefabSorteado, posicaoSpawn, Quaternion.identity);
 
         MovimentoInimigo scriptDoInimigo = novoInimigo.GetComponent<MovimentoInimigo>();
 
