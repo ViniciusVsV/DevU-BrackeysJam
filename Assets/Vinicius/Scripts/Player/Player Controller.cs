@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private float invulnerabilityDuration;
     private float invulnerabilityTimer;
     [SerializeField] private float knockbackStrength;
+    private HeartsManager heartsManager;
 
     [Header("-----Movement-----")]
     [SerializeField] private float moveSpeed;
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
 
         isFacingRight = true;
+    }
+
+    private void Start()
+    {
+        heartsManager = FindFirstObjectByType<HeartsManager>();
     }
 
     private void Update()
@@ -137,6 +143,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         invulnerabilityTimer = invulnerabilityDuration;
 
         PlayerDamagedEffect.Instance.ApplyEffect(gameObject, invulnerabilityDuration, direction);
+        heartsManager.DeactivateHeart(maxHealth - currentHealth);
 
         currentHealth -= damage;
 

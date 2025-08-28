@@ -2,33 +2,32 @@ using UnityEngine;
 
 public class AltitudeBarManager : MonoBehaviour
 {
-    private Animator animator;
+    [SerializeField] private Animator altitudeBarAnimator;
     private int currentSide;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
-
         currentSide = -1;
     }
 
     private void Start()
     {
-        animator.Play("Activate");
+        altitudeBarAnimator.Play("Activate");
     }
 
     private void ChangeSide()
     {
         if (currentSide == 1)
-            animator.Play("Change to Left");
+            altitudeBarAnimator.Play("Change to Left");
         else
-            animator.Play("Change to Right");
+            altitudeBarAnimator.Play("Change to Right");
 
         currentSide *= -1;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.CompareTag("Boss"))
-            ChangeSide();    
+            ChangeSide();
     }
 }
