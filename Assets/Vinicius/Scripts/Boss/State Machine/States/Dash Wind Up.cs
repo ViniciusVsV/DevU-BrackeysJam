@@ -28,7 +28,7 @@ public class DashWindUp : BaseState
         {
             targetPosition = new Vector2(tr.position.x, playerTransform.position.y);
 
-            tr.position = Vector2.MoveTowards(tr.position, targetPosition, approachSpeed * customTimeScale.GetDeltaTime());
+            tr.position = Vector2.MoveTowards(tr.position, targetPosition, approachSpeed * Time.deltaTime);
 
             if (Mathf.Abs(tr.position.y - playerTransform.position.y) < 0.1f)
                 isFollowingPlayer = true;
@@ -38,7 +38,7 @@ public class DashWindUp : BaseState
         {
             tr.position = new Vector2(tr.position.x, playerTransform.position.y);
 
-            timer -= customTimeScale.GetDeltaTime();
+            timer -= Time.deltaTime;
 
             if (timer < Mathf.Epsilon)
                 controller.SetDashState();

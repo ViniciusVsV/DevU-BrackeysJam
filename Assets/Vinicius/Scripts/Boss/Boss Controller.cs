@@ -4,25 +4,21 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class BossController : MonoBehaviour
 {
-    //Comportamento do boss se remusme em:
-    //Flutuar em um lado da tela
-    //Escolher entre sair da tela e invocar foguetes e dar um dash na posição x do jogador
-
-    //Se sair da tela: Esolhe aleatoriamente entre os atques de invocar foguetes e depois volta em um lado aleatório da tela, repetindo o estado de flutuar
-
-    //Se dar o dash: troca de posição na tela e repete o estado de flutuar
     [SerializeField] private CustomTimeScale customTimeScale;
 
     [Header("-----States-----")]
     [SerializeField] private Idle idleState;
     [SerializeField] private DashWindUp dashWindUpState;
     [SerializeField] private Dash dashState;
+    [SerializeField] private CameraLeave cameraLeaveState;
+    [SerializeField] private RocketAttack rocketAttackState;
     private StateMachine stateMachine;
 
     private Rigidbody2D rb;
     private Animator animator;
 
     public bool isFacingRight;
+    public bool isDashing;
 
     private void Awake()
     {
@@ -31,9 +27,11 @@ public class BossController : MonoBehaviour
 
         stateMachine = new StateMachine();
 
-        idleState.Setup(rb, transform, animator, this, customTimeScale);
-        dashWindUpState.Setup(rb, transform, animator, this, customTimeScale);
-        dashState.Setup(rb, transform, animator, this, customTimeScale);
+        idleState.Setup(rb, transform, animator, this);
+        dashWindUpState.Setup(rb, transform, animator, this);
+        dashState.Setup(rb, transform, animator, this);
+        cameraLeaveState.Setup(rb, transform, animator, this);
+        rocketAttackState.Setup(rb, transform, animator, this);
 
         stateMachine.Set(idleState);
 
@@ -46,6 +44,14 @@ public class BossController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
             stateMachine.Set(dashWindUpState);
+
+        else if (Input.GetKeyDown(KeyCode.F))
+            stateMachine.Set(cameraLeaveState);
+    }
+
+    private void FixedUpdate()
+    {
+        stateMachine.currentState.StateFixedUpdate();
     }
 
     public void SetIdleState()
@@ -56,5 +62,10 @@ public class BossController : MonoBehaviour
     public void SetDashState()
     {
         stateMachine.Set(dashState);
+    }
+
+    public void SetRocketAttackState()
+    {
+        stateMachine.Set(rocketAttackState);
     }
 }

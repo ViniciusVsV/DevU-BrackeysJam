@@ -1,11 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 public class RocketAttack : BaseState
 {
     public override void StateEnter()
     {
-        //Sai da tela por uma direção
+        //Escolhe uma direção aleatória 
 
-        //Invoca o rocket attack da direção pela qual ele saiu
+        StartCoroutine(a());
+    }
+
+    private IEnumerator a()
+    {
+        yield return new WaitForSeconds(3f);
+
+        controller.SetDashState();
     }
 }

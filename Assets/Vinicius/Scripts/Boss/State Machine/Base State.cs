@@ -8,15 +8,13 @@ public abstract class BaseState : MonoBehaviour
     protected Rigidbody2D rb;
     protected Transform tr;
     protected BossController controller;
-    protected CustomTimeScale customTimeScale;
 
-    public void Setup(Rigidbody2D rb, Transform tr, Animator animator, BossController controller, CustomTimeScale customTimeScale)
+    public void Setup(Rigidbody2D rb, Transform tr, Animator animator, BossController controller)
     {
         this.rb = rb;
         this.tr = tr;
         this.animator = animator;
         this.controller = controller;
-        this.customTimeScale = customTimeScale;
     }
 
     public void Initialise()

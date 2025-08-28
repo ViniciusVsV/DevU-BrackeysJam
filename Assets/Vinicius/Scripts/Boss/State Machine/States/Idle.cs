@@ -3,26 +3,43 @@ using UnityEngine;
 public class Idle : BaseState
 {
     [SerializeField] private float floatSpeed;
-    [SerializeField] private float floatAmplitude;
-    private float newYPosition;
 
-    [SerializeField] private Transform xPoint;
-    private Vector2 initialPosition;
-    private float timeScaleTimer;
+    [SerializeField] private float targetY;
+    private float currentTargetY;
+
+    private int moveDirection;
 
     public override void StateEnter()
     {
-        initialPosition = xPoint.position;
+        currentTargetY = targetY;
 
-        timeScaleTimer = 0f;
+        if (currentTargetY > tr.position.y)
+
+            moveDirection = 1;
+
+        else
+        {
+            moveDirection = -1;
+            currentTargetY *= -1;
+        }
     }
 
     public override void StateUpdate()
     {
-        timeScaleTimer += customTimeScale.GetDeltaTime();
+        if (Mathf.Abs(tr.position.y - currentTargetY) <= 0.1f)
+        {
+            currentTargetY *= -1;
+            moveDirection *= -1;
+        }
+    }
 
-        newYPosition = initialPosition.y + Mathf.Sin(timeScaleTimer * floatSpeed) * floatAmplitude;
+    public override void StateFixedUpdate()
+    {
+        rb.linearVelocity = floatSpeed * new Vector2(0, moveDirection);
+    }
 
-        tr.position = new Vector2(transform.position.x, newYPosition);
+    public override void StateExit()
+    {
+        rb.linearVelocity = Vector2.zero;
     }
 }
