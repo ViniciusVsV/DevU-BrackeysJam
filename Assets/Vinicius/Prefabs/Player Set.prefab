@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &523685773538851209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8579117790752796159}
+  m_Layer: 3
+  m_Name: Crosshair Idle Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8579117790752796159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523685773538851209}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8732229245694312827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432081147582751314
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +44,7 @@ GameObject:
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -44,13 +75,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a8d4b16ec0d494d8d39244ba0ac730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCooldown: 0.3
+  baseCooldown: 0.2
   cooldownLowerLimit: 0.05
   baseDamage: 1
   damageHigherLimit: 4
   currentDamage: 0
   baseProjectile: {fileID: 5166161720359047258, guid: 8032d14157dbb0f449bbdb4d6c31edae, type: 3}
   crosshairPosition: {fileID: 10408427138543688}
+  muzzleFlash: {fileID: 0}
 --- !u!1 &4421175600893057047
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.25856033, y: 0.42957905, z: 0.19609515}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 14946572881299724}
@@ -96,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e07069076373f42aceda569b583e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idlePosition: {fileID: 8579117790752796159}
   maxDistance: 4
 --- !u!212 &279840296369573952
 SpriteRenderer:
@@ -141,8 +174,8 @@ SpriteRenderer:
   m_SortingLayerID: 1231195521
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -2565141449147483526, guid: eba6b47d2a985c64b991359bd6947ded, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -268,6 +301,7 @@ Transform:
   m_Children:
   - {fileID: 5219795549870629728}
   - {fileID: 4815333617159079024}
+  - {fileID: 8579117790752796159}
   m_Father: {fileID: 14946572881299724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3661682069110275550

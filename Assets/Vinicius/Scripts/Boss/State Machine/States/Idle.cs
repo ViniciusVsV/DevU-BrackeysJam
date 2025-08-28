@@ -26,7 +26,7 @@ public class Idle : BaseState
 
     public override void StateUpdate()
     {
-        if (Mathf.Abs(tr.position.y - currentTargetY) <= 0.1f)
+        if (Mathf.Abs(tr.position.y - currentTargetY) <= 1f)
         {
             currentTargetY *= -1;
             moveDirection *= -1;

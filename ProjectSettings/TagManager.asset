@@ -44,11 +44,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player Projectile
+    uniqueID: 1197293899
+    locked: 0
   - name: Player
     uniqueID: 2752237027
     locked: 0
+  - name: Particles
+    uniqueID: 3327693799
+    locked: 0
   - name: Crosshair
     uniqueID: 1231195521
+    locked: 0
+  - name: UI
+    uniqueID: 721061691
     locked: 0
   m_RenderingLayers:
   - Default

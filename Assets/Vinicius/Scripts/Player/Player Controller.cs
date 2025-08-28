@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         if (isShooting)
             playerWeapon.Shoot();
+
+        CheckFlip();
     }
 
     private void FixedUpdate()
@@ -61,8 +63,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void Move(InputAction.CallbackContext context)
     {
         moveDirection = context.ReadValue<Vector2>();
-
-        Flip();
     }
 
     public void Look(InputAction.CallbackContext context)
@@ -86,13 +86,38 @@ public class PlayerController : MonoBehaviour, IDamageable
             isOnController = false;
     }
 
+    private void CheckFlip()
+    {
+        //Se está no controle:
+        //Se lookDirection é 0, usar moveDirection para flipar
+        if (isOnController)
+        {
+            if (lookDirection == Vector2.zero)
+            {
+                if (isFacingRight && moveDirection.x < 0f || !isFacingRight && moveDirection.x > 0f)
+                    Flip();
+            }
+
+            else
+            {
+                if (isFacingRight && lookDirection.x < 0f || !isFacingRight && lookDirection.x > 0f)
+                    Flip();
+            }
+        }
+
+        else
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+            if (isFacingRight && mousePosition.x < transform.position.x || !isFacingRight && mousePosition.x > transform.position.x)
+                Flip();
+        }
+    }
+
     private void Flip()
     {
-        if (isFacingRight && moveDirection.x < 0f || !isFacingRight && moveDirection.x > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-        }
+        isFacingRight = !isFacingRight;
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -126,5 +151,5 @@ public class PlayerController : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
-    public PlayerWeapon GetWeapon(){ return playerWeapon; }
+    public PlayerWeapon GetWeapon() { return playerWeapon; }
 }

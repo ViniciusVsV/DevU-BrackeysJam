@@ -8,14 +8,12 @@ public class CrosshairBehaviour : MonoBehaviour
     private Vector2 newPosition;
 
     [Header("-----Controller Behaviour-----")]
+    [SerializeField] private Transform idlePosition;
     [SerializeField] private float maxDistance;
-    private Transform playerTransform;
 
     private void Awake()
     {
         playerController = FindFirstObjectByType<PlayerController>();
-
-        playerTransform = playerController.transform;
 
         transform.SetParent(transform.parent, true);
     }
@@ -23,7 +21,7 @@ public class CrosshairBehaviour : MonoBehaviour
     private void Update()
     {
         if (playerController.isOnController)
-            transform.position = (Vector2)playerTransform.position + playerController.lookDirection * maxDistance;
+            transform.position = (Vector2)idlePosition.position + playerController.lookDirection * maxDistance;
 
         else
         {

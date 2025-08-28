@@ -20,6 +20,7 @@ public class PlayerWeapon : MonoBehaviour
     private int remainingRounds;
 
     [SerializeField] private Transform crosshairPosition;
+    [SerializeField] private ParticleSystem muzzleFlash;
     private Vector2 shootDirection;
     private Quaternion shootRotation;
 
