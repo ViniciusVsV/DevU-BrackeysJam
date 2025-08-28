@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class BossController : MonoBehaviour
 {
-    [SerializeField] private CustomTimeScale customTimeScale;
-
     [Header("-----States-----")]
     [SerializeField] private Idle idleState;
     [SerializeField] private DashWindUp dashWindUpState;
@@ -35,7 +33,7 @@ public class BossController : MonoBehaviour
 
         stateMachine.Set(idleState);
 
-        isFacingRight = true;
+        isFacingRight = false;
     }
 
     private void Update()

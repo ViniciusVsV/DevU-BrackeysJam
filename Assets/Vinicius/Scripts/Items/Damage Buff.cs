@@ -5,7 +5,6 @@ public class DamageBuff : MonoBehaviour
 {
     private PlayerWeapon playerWeapon;
 
-    [SerializeField] private CustomTimeScale customTimeScale;
     [SerializeField] private int damageIncrease;
     [SerializeField] private float buffDuration;
 
