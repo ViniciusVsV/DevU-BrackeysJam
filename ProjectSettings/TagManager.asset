@@ -2,19 +2,22 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Player Projectile
+  - Obstacle
+  - Boss
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player Projectile
+  - Obstacle
+  - Boss
+  - Player Confiner
   - 
   - 
   - 
@@ -38,6 +41,47 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background Layer 6
+    uniqueID: 2666825031
+    locked: 0
+  - name: Background Layer 5
+    uniqueID: 825593893
+    locked: 0
+  - name: Background Layer 4
+    uniqueID: 803244019
+    locked: 0
+  - name: Background Layer 3
+    uniqueID: 786792391
+    locked: 0
+  - name: Background Layer 2
+    uniqueID: 41622905
+    locked: 0
+  - name: Background Layer 1
+    uniqueID: 1153117461
+    locked: 0
+  - name: Background Layer 0
+    uniqueID: 1710486715
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player Projectile
+    uniqueID: 1197293899
+    locked: 0
+  - name: Player
+    uniqueID: 2752237027
+    locked: 0
+  - name: Particles
+    uniqueID: 3327693799
+    locked: 0
+  - name: Ground
+    uniqueID: 3935932441
+    locked: 0
+  - name: Crosshair
+    uniqueID: 1231195521
+    locked: 0
+  - name: UI
+    uniqueID: 721061691
+    locked: 0
+  m_RenderingLayers:
+  - Default

@@ -14,17 +14,18 @@ public class MovimentoInimigo : MonoBehaviour
     }
     void Start()
     {
-        if (sr != null && direcaoMovimento.x < Mathf.Epsilon)
+        if (direcaoMovimento.x < Mathf.Epsilon)
         {
             sr.flipX = true;
         }
-        
+
+
+
         Destroy(gameObject, 5);
     }
 
-
-    void FixedUpdate()  
+    void FixedUpdate()
     {
-        rb.linearVelocity = direcaoMovimento * moveSpeed;
+        rb.linearVelocity = moveSpeed * direcaoMovimento;
     }
 }
