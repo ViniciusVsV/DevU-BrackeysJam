@@ -1,9 +1,16 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour, IDamageable
 {
+    private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     [Header("-----Health-----")]
     [SerializeField] private int maxHealth;
     private int currentHealth;
@@ -13,26 +20,35 @@ public class PlayerController : MonoBehaviour, IDamageable
     private HeartsManager heartsManager;
 
     [Header("-----Movement-----")]
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float baseMoveSpeed;
+    private float currentMoveSpeed;
     [SerializeField] private float moveDamping;
     private Vector2 moveDirection;
     private Vector2 moveToApply;
-
+    private Coroutine moveSpeedRoutine;
     private bool isFacingRight;
-    private Rigidbody2D rb;
 
     [Header("-----Shoot-----")]
     [SerializeField] private PlayerWeapon playerWeapon;
     [HideInInspector] public Vector2 lookDirection;
     private bool isShooting;
 
+    [Header("-----Crash-----")]
+    [SerializeField] private Sprite crashedSprite;
+    [SerializeField] private float crashDuration;
+    [SerializeField] private float crashY;
+
+    public bool isDeactivated;
     public bool isOnController;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         currentHealth = maxHealth;
+        currentMoveSpeed = baseMoveSpeed;
 
         isFacingRight = true;
     }
@@ -44,6 +60,9 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Update()
     {
+        if (isDeactivated)
+            return;
+
         if (invulnerabilityTimer > Mathf.Epsilon)
             invulnerabilityTimer -= Time.unscaledDeltaTime;
 
@@ -55,13 +74,16 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        Vector2 moveStrength = moveDirection.normalized * moveSpeed;
+        Vector2 moveStrength = moveDirection.normalized * currentMoveSpeed;
         moveStrength += moveToApply;
 
         moveToApply /= moveDamping;
 
         if (Mathf.Abs(moveToApply.x) <= 0.01f && Mathf.Abs(moveToApply.y) <= 0.01f)
             moveToApply = Vector2.zero;
+
+        if (isDeactivated)
+            return;
 
         rb.linearVelocity = moveStrength;
     }
@@ -94,8 +116,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void CheckFlip()
     {
-        //Se está no controle:
-        //Se lookDirection é 0, usar moveDirection para flipar
         if (isOnController)
         {
             if (lookDirection == Vector2.zero)
@@ -158,5 +178,50 @@ public class PlayerController : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
+    public float Crash()
+    {
+        isDeactivated = true;
+
+        StartCoroutine(CrashRoutine());
+
+        return crashDuration;
+    }
+    private IEnumerator CrashRoutine()
+    {
+        float elapsedTime = 0f;
+        float startY = transform.position.y;
+
+        while (elapsedTime < crashDuration)
+        {
+            float yPosition = Mathf.Lerp(startY, crashY, elapsedTime / crashDuration);
+
+            transform.position = new Vector2(transform.position.x, yPosition);
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        transform.position = new Vector2(transform.position.x, crashY);
+
+        spriteRenderer.sprite = crashedSprite;
+    }
+
     public PlayerWeapon GetWeapon() { return playerWeapon; }
+
+    public void BuffMoveSpeed(float newMoveSpeed, float duration)
+    {
+        if (moveSpeedRoutine != null)
+            StopCoroutine(moveSpeedRoutine);
+
+        moveSpeedRoutine = StartCoroutine(MoveSpeedRoutine(newMoveSpeed, duration));
+    }
+    private IEnumerator MoveSpeedRoutine(float newMoveSpeed, float duration)
+    {
+        currentMoveSpeed = newMoveSpeed;
+
+        yield return new WaitForSeconds(duration);
+
+        currentMoveSpeed = baseMoveSpeed;
+    }
 }

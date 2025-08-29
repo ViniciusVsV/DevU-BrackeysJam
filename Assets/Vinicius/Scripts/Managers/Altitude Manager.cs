@@ -10,19 +10,32 @@ public class AltitudeManager : MonoBehaviour
 
     [SerializeField] private Slider altitudeBar;
 
-    [Header("-----Background Movement-----")]
+    [Header("-----Background Parallax-----")]
     [SerializeField] private Transform[] backgroundLayers;
     [SerializeField] private float[] layerSpeeds;
-    [SerializeField] private float targetY;
+
     private float[] startY;
+    private float[] endY;
 
     private void Awake()
     {
         elapsedTime = 0f;
 
-        startY = new float[backgroundLayers.Length];
-        for (int i = 0; i < backgroundLayers.Length; i++)
-            startY[i] = backgroundLayers[i].position.y;
+        int count = backgroundLayers.Length;
+
+        startY = new float[count];
+        endY = new float[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            endY[i] = backgroundLayers[i].position.y;
+
+            float distance = layerSpeeds[i] * totalDuration;
+
+            startY[i] = endY[i] - distance;
+
+            backgroundLayers[i].position = new Vector2(backgroundLayers[i].position.x, startY[i]);
+        }
     }
 
     private void Update()
@@ -34,11 +47,14 @@ public class AltitudeManager : MonoBehaviour
 
         for (int i = 0; i < backgroundLayers.Length; i++)
         {
-            float newY = Mathf.Lerp(startY[i], targetY, progress * layerSpeeds[i]);
+            float newY = Mathf.Lerp(startY[i], endY[i], progress);
             backgroundLayers[i].position = new Vector2(backgroundLayers[i].position.x, newY);
         }
 
         if (elapsedTime >= totalDuration)
-            SceneManager.LoadScene("Final Menu");
+        {
+            GroundReachedEffect.Instance.ApplyEffect();
+            enabled = false;
+        }
     }
 }

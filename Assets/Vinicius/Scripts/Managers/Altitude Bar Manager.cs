@@ -25,6 +25,14 @@ public class AltitudeBarManager : MonoBehaviour
         currentSide *= -1;
     }
 
+    public void Deactivate()
+    {
+        if (currentSide == 1)
+            altitudeBarAnimator.Play("Deactivate Right");
+        else
+            altitudeBarAnimator.Play("Deactivate Left");
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Boss"))

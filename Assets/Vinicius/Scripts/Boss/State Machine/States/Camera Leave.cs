@@ -31,6 +31,8 @@ public class CameraLeave : BaseState
             leaveDurationTimer -= Time.deltaTime;
         else
         {
+            controller.canTakeDamage = false;
+
             controller.SetRocketAttackState();
             return;
         }
@@ -41,5 +43,7 @@ public class CameraLeave : BaseState
     public override void StateExit()
     {
         rb.linearVelocity = Vector2.zero;
+
+        controller.canTakeDamage = true;
     }
 }

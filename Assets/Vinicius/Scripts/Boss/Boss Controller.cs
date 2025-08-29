@@ -10,6 +10,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private Dash dashState;
     [SerializeField] private CameraLeave cameraLeaveState;
     [SerializeField] private RocketAttack rocketAttackState;
+    [SerializeField] private Deactivate deactivateState;
     private StateMachine stateMachine;
 
     private Rigidbody2D rb;
@@ -17,6 +18,7 @@ public class BossController : MonoBehaviour
 
     public bool isFacingRight;
     public bool isDashing;
+    public bool canTakeDamage;
 
     private void Awake()
     {
@@ -30,10 +32,12 @@ public class BossController : MonoBehaviour
         dashState.Setup(rb, transform, animator, this);
         cameraLeaveState.Setup(rb, transform, animator, this);
         rocketAttackState.Setup(rb, transform, animator, this);
+        deactivateState.Setup(rb, transform, animator, this);
 
         stateMachine.Set(idleState);
 
         isFacingRight = false;
+        canTakeDamage = true;
     }
 
     private void Update()
@@ -65,5 +69,12 @@ public class BossController : MonoBehaviour
     public void SetRocketAttackState()
     {
         stateMachine.Set(rocketAttackState);
+    }
+
+    public void SetDeactivateState()
+    {
+        canTakeDamage = false;
+
+        stateMachine.Set(deactivateState);
     }
 }

@@ -805,7 +805,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1231195521
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2565141449147483526, guid: eba6b47d2a985c64b991359bd6947ded, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1037,10 +1037,14 @@ MonoBehaviour:
   maxHealth: 3
   invulnerabilityDuration: 1
   knockbackStrength: 30
-  moveSpeed: 10
+  baseMoveSpeed: 5
   moveDamping: 1.2
   playerWeapon: {fileID: 2391584793143322156}
   lookDirection: {x: 0, y: 0}
+  crashedSprite: {fileID: -1621669554466727391, guid: eb81138a13dca6e47a16fde5fb3287cd, type: 3}
+  crashDuration: 0.3
+  crashY: -10
+  isDeactivated: 0
   isOnController: 0
 --- !u!114 &8692680157005380941
 MonoBehaviour:

@@ -23,6 +23,12 @@ public class CameraFollowBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (playerController.isDeactivated)
+        {
+            transform.position = new Vector2(0f, playerTransform.position.y);
+            return;
+        }
+
         if (playerController.isOnController)
         {
             playerDirection = (playerTransform.position - transform.position).normalized;
