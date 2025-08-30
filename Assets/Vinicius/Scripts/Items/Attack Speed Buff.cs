@@ -19,6 +19,7 @@ public class AttackSpeedBuff : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Teste");
             col.enabled = false;
 
             playerWeapon = other.GetComponent<PlayerController>().GetWeapon();

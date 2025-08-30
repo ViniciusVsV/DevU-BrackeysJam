@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6795458089785503998}
   - component: {fileID: 3241144432280416547}
   m_Layer: 7
-  m_Name: destroco6
-  m_TagString: Untagged
+  m_Name: Obstacle 6
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   direcaoMovimento: {x: 0, y: 0}
-  sr: {fileID: 0}
   canRotate: 1
   rotationSpeed: 28
 --- !u!60 &3241144432280416547
@@ -164,7 +163,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

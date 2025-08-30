@@ -647,9 +647,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839528549513603850}
-  - component: {fileID: 4097903525100286477}
   m_Layer: 0
-  m_Name: AtaqueFogueteBoss
+  m_Name: Rocket Spawn Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,50 +671,6 @@ Transform:
   - {fileID: 209684125315844057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4097903525100286477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763057746852070318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 137d6b8c59dd7ab4ba11f36cce538175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabFoguete: {fileID: 8529724787484199836, guid: 9bd7538c7afb660448098afa918c4c7c, type: 3}
-  padroesDeAtaque:
-  - nomeDoPadrao: Vertical1
-    pontosDeSpawn:
-    - {fileID: 9040020606453942384}
-    - {fileID: 6335173012187195727}
-    - {fileID: 7523013751714153524}
-  - nomeDoPadrao: Vertical2
-    pontosDeSpawn:
-    - {fileID: 8364658464946365142}
-    - {fileID: 4909842749840808119}
-    - {fileID: 6345872274532132579}
-  - nomeDoPadrao: Direita1
-    pontosDeSpawn:
-    - {fileID: 7570718346058264327}
-    - {fileID: 8232938302776058204}
-    - {fileID: 5068263468460140818}
-  - nomeDoPadrao: Direita2
-    pontosDeSpawn:
-    - {fileID: 235849108817517230}
-    - {fileID: 1716618329489781624}
-    - {fileID: 1584467471695543153}
-  - nomeDoPadrao: Esquerda1
-    pontosDeSpawn:
-    - {fileID: 5456791381878217418}
-    - {fileID: 5897770041858474913}
-    - {fileID: 5157884548784511155}
-  - nomeDoPadrao: Esquerda2
-    pontosDeSpawn:
-    - {fileID: 3991194934449750534}
-    - {fileID: 3543182731716311741}
-    - {fileID: 1768932645382203680}
 --- !u!1 &7985098448509720268
 GameObject:
   m_ObjectHideFlags: 0
