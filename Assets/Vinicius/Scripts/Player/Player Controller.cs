@@ -212,6 +212,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float Crash()
     {
         isDeactivated = true;
+        rb.simulated = false;
 
         StartCoroutine(CrashRoutine());
 
@@ -234,7 +235,10 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
 
         transform.SetPositionAndRotation(new Vector2(transform.position.x, crashY), Quaternion.Euler(new Vector3(0f, 0f, -75f)));
+        transform.localScale = new Vector2(1, 1);
         animator.Play("Crash");
+
+        yield return new WaitForSeconds(2f);
     }
 
     public PlayerWeapon GetWeapon() { return playerWeapon; }

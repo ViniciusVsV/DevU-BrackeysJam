@@ -13,6 +13,7 @@ public class BossController : MonoBehaviour, IDamageable
     [SerializeField] private RocketAttack rocketAttackState;
     [SerializeField] private Deactivate deactivateState;
     [SerializeField] private GuidedRocketAttack guidedRocketAttackState;
+    [SerializeField] private Death deathState;
     private StateMachine stateMachine;
 
     [Header("-----Health-----")]
@@ -32,6 +33,7 @@ public class BossController : MonoBehaviour, IDamageable
     public bool isFacingRight;
     public bool isDashing;
     public bool canTakeDamage;
+    public bool isDead;
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class BossController : MonoBehaviour, IDamageable
         rocketAttackState.Setup(rb, transform, animator, this);
         deactivateState.Setup(rb, transform, animator, this);
         guidedRocketAttackState.Setup(rb, transform, animator, this);
+        deathState.Setup(rb, transform, animator, this);
 
         stateMachine.Set(idleState);
 
@@ -61,6 +64,9 @@ public class BossController : MonoBehaviour, IDamageable
     private void Update()
     {
         stateMachine.currentState.StateUpdate();
+
+        if (isDead)
+            return;
 
         if (stateMachine.currentState == idleState)
             attackTimer -= Time.deltaTime;
@@ -153,7 +159,7 @@ public class BossController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage, Vector2 direction)
     {
-        if (!canTakeDamage)
+        if (!canTakeDamage || isDead)
             return;
 
         currentHealth -= damage;
@@ -161,6 +167,9 @@ public class BossController : MonoBehaviour, IDamageable
         BossDamagedEffect.Instance.ApplyEffect(gameObject);
 
         if (currentHealth <= 0)
-            Destroy(gameObject);
+        {
+            isDead = true;
+            stateMachine.Set(deathState);
+        }
     }
 }

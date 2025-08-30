@@ -14,6 +14,7 @@ public class PlayerDiedEffect : MonoBehaviour
     private AltitudeBarManager altitudeBarManager;
     private AltitudeManager altitudeManager;
     private TransitionScreenManager transitionScreenManager;
+    private AmmoCounterManager ammoCounterManager;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class PlayerDiedEffect : MonoBehaviour
         altitudeBarManager = FindFirstObjectByType<AltitudeBarManager>();
         altitudeManager = FindFirstObjectByType<AltitudeManager>();
         transitionScreenManager = FindFirstObjectByType<TransitionScreenManager>();
+        ammoCounterManager = FindFirstObjectByType<AmmoCounterManager>();
     }
 
     public void ApplyEffect(float deathDuration)
@@ -38,6 +40,7 @@ public class PlayerDiedEffect : MonoBehaviour
 
         heartsManager.DeactivateAll();
         altitudeBarManager.Deactivate();
+        ammoCounterManager.Deactivate();
 
         StartCoroutine(Routine(deathDuration));
     }
