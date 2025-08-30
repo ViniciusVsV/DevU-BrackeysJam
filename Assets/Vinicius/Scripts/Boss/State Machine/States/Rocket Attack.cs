@@ -10,15 +10,51 @@ public class RocketAttack : BaseState
     [Header("-----Patterns-----")]
     [SerializeField] private List<PadraoDeAtaqueFoguetes> padroesDeAtaque;
 
+    [SerializeField] float startDelay;
     [SerializeField] float endDelay;
+
+    [Header("-----Timing-----")]
+    [SerializeField] private float warningDuration;
+    [SerializeField] private float blinkingFrequency;
 
     public override void StateEnter()
     {
+        StartCoroutine(AttackRoutine());
+    }
+
+    private IEnumerator AttackRoutine()
+    {
         if (padroesDeAtaque == null || padroesDeAtaque.Count == 0)
-            return;
+            yield break;
 
         int indiceAleatorio = Random.Range(0, padroesDeAtaque.Count);
         PadraoDeAtaqueFoguetes padraoEscolhido = padroesDeAtaque[indiceAleatorio];
+
+        List<GameObject> warningsPadrao = new List<GameObject>();
+
+        foreach (Transform pontoDeSpawn in padraoEscolhido.pontosDeSpawn)
+        {
+            if (pontoDeSpawn.childCount > 0)
+            {
+                GameObject aviso = pontoDeSpawn.GetChild(0).gameObject;
+                warningsPadrao.Add(aviso);
+            }
+        }
+
+        float temp = warningDuration;
+        float cronometro = 0f;
+        while (cronometro < temp)
+        {
+            foreach (GameObject aviso in warningsPadrao)
+            {
+                aviso.SetActive(!aviso.activeSelf);
+            }
+
+            yield return new WaitForSeconds(blinkingFrequency);
+            temp -= blinkingFrequency;
+        }
+
+        
 
         foreach (Transform pontoDeSpawn in padraoEscolhido.pontosDeSpawn)
         {
@@ -35,23 +71,21 @@ public class RocketAttack : BaseState
             }
         }
 
-        StartCoroutine(Routine());
+        StartCoroutine(EndRoutine());
     }
+
+
 
     public override void StateExit()
     {
         controller.canTakeDamage = true;
     }
 
-    private IEnumerator Routine()
+
+    private IEnumerator EndRoutine()
     {
         yield return new WaitForSeconds(endDelay);
 
         controller.SetDashState();
-    }
-
-    public override void StateExit()
-    {
-        controller.canTakeDamage = true;
     }
 }

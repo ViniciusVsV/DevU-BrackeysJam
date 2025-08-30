@@ -8,7 +8,6 @@ public class RandomSpawner : MonoBehaviour
 
     private BoxCollider2D areaDeSpawn;
 
-    // Limite do spawn é o box collider
     private Bounds bounds;
     private Vector2 posicaoSpawn;
     private Vector2 direcaoMovimento;

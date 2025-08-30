@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public class GuidedRocketBehaviour : MonoBehaviour, IDamageable
+public class RocketBehaviour : MonoBehaviour, IDamageable
 {
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -41,13 +41,6 @@ public class GuidedRocketBehaviour : MonoBehaviour, IDamageable
             rb.linearVelocity = Vector2.zero;
             return;
         }
-
-        playerDirection = ((Vector2)playerPosition.position - rb.position).normalized;
-
-        float angle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-
-        Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
         rb.linearVelocity = transform.right * moveSpeed;
     }
