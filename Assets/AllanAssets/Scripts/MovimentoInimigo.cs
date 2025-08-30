@@ -5,7 +5,7 @@ public class MovimentoInimigo : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private Rigidbody2D rb;
     [HideInInspector] public Vector2 direcaoMovimento;
-    public SpriteRenderer sr;
+    private SpriteRenderer sr;
     [SerializeField] public bool canRotate;
     [SerializeField] private float rotationSpeed;
     private int random;
@@ -19,7 +19,7 @@ public class MovimentoInimigo : MonoBehaviour
         if (random < 0) random = -1;
         else random = 1;
 
-       
+
     }
     void Start()
     {
