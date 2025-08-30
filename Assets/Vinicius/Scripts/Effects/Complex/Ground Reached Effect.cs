@@ -22,6 +22,8 @@ public class GroundReachedEffect : MonoBehaviour
     private PlayerController playerController;
     private HeartsManager heartsManager;
     private AltitudeBarManager altitudeBarManager;
+    private TransitionScreenManager transitionScreenManager;
+    private AmmoCounterManager ammoCounterManager;
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class GroundReachedEffect : MonoBehaviour
         playerController = FindFirstObjectByType<PlayerController>();
         heartsManager = FindFirstObjectByType<HeartsManager>();
         altitudeBarManager = FindFirstObjectByType<AltitudeBarManager>();
+        transitionScreenManager = FindFirstObjectByType<TransitionScreenManager>();
+        ammoCounterManager = FindFirstObjectByType<AmmoCounterManager>();
 
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
     }
@@ -63,5 +67,10 @@ public class GroundReachedEffect : MonoBehaviour
 
         heartsManager.DeactivateAll();
         altitudeBarManager.Deactivate();
+        ammoCounterManager.Deactivate();
+
+        yield return new WaitForSeconds(3f);
+
+        transitionScreenManager.PlayEnd("Defeat Screen");
     }
 }

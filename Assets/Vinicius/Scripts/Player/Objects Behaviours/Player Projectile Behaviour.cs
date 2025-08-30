@@ -43,7 +43,7 @@ public class PlayerProjectileBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = transform.up * moveSpeed;
+        rb.linearVelocity = transform.right * moveSpeed;
     }
 
     private void LateUpdate()

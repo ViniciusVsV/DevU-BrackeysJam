@@ -17,7 +17,7 @@ public class PlayerWeapon : MonoBehaviour
     [Header("-----Projectile-----")]
     [SerializeField] private GameObject baseProjectile;
     private GameObject currentProjectile;
-    private int remainingRounds;
+    public int remainingRounds;
 
     [Header("-----Muzzle Flash-----")]
     [SerializeField] private SpriteRenderer muzzleSpriteRenderer;
@@ -53,7 +53,9 @@ public class PlayerWeapon : MonoBehaviour
             return;
 
         shootDirection = (crosshairPosition.position - transform.position).normalized;
-        shootRotation = Quaternion.LookRotation(Vector3.forward, shootDirection);
+
+        float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+        shootRotation = Quaternion.Euler(0f, 0f, angle);
 
         Instantiate(currentProjectile, transform.position, shootRotation);
 
