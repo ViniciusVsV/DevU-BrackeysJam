@@ -6,26 +6,35 @@ public class MovimentoInimigo : MonoBehaviour
     private Rigidbody2D rb;
     [HideInInspector] public Vector2 direcaoMovimento;
     public SpriteRenderer sr;
+    [SerializeField] public bool canRotate;
+    [SerializeField] private float rotationSpeed;
+    private int random;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        random = Random.Range(-1, 1);
+        if (random < 0) random = -1;
+        else random = 1;
+
+       
     }
     void Start()
     {
-        if (direcaoMovimento.x < Mathf.Epsilon)
+        if (direcaoMovimento.x < 0)
         {
             sr.flipX = true;
         }
 
-
-
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 8);
     }
 
     void FixedUpdate()
     {
+        transform.Rotate(0, 0, rotationSpeed * Time.deltaTime * random);
+
         rb.linearVelocity = moveSpeed * direcaoMovimento;
     }
 }

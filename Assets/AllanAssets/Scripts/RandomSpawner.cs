@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
 {
     public enum PosicaoDoSpawner { Cima, Baixo, Esquerda, Direita }
-    public GameObject prefab;
+    [SerializeField] private List<GameObject> listaDePrefabs;
 
     private BoxCollider2D areaDeSpawn;
 
@@ -17,53 +18,82 @@ public class RandomSpawner : MonoBehaviour
 
     [SerializeField] private PosicaoDoSpawner posSpawner;
 
+    [SerializeField] private float intervaloInicial = 3.0f;
+    [SerializeField] private float intervaloMinimo = 0.5f;
+    [SerializeField] private float fatorDeDificuldade = 0.98f;
+    private float cronometroParaSpawn;
 
     void Awake()
     {
         areaDeSpawn = GetComponent<BoxCollider2D>();
+
     }
 
-    
+    private void Start()
+    {
+        cronometroParaSpawn = intervaloInicial;
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        cronometroParaSpawn -= Time.deltaTime;
+
+        if (cronometroParaSpawn <= Mathf.Epsilon)
         {
             Spawn();
+
+            float tempoDecorrido = Time.timeSinceLevelLoad;
+
+            float intervaloVariavel = (intervaloInicial - intervaloMinimo) * Mathf.Pow(fatorDeDificuldade, tempoDecorrido);
+            float intervaloAtual = intervaloMinimo + intervaloVariavel;
+
+            cronometroParaSpawn = intervaloAtual;
         }
     }
 
     void Spawn()
     {
+        int indiceAleatorio = Random.Range(0, listaDePrefabs.Count);
+
+        GameObject prefabSorteado = listaDePrefabs[indiceAleatorio];
+
         bounds = areaDeSpawn.bounds;
 
         direcaoMovimento = Vector2.zero;
 
-        switch (posSpawner)
+        if(posSpawner == PosicaoDoSpawner.Cima || posSpawner == PosicaoDoSpawner.Baixo)
         {
+            posX = Random.Range(bounds.min.x, bounds.max.x);
+            posicaoSpawn = new Vector2(posX, transform.position.y);
+        }
+        else
+        {
+            posY = Random.Range(bounds.min.y, bounds.max.y);
+            posicaoSpawn = new Vector2(transform.position.x, posY);
+        }
+
+         switch (posSpawner)
+            {
             case PosicaoDoSpawner.Cima:
-                posX = Random.Range(bounds.min.x, bounds.max.x);
-                posicaoSpawn = new Vector2(posX, transform.position.y);
                 direcaoMovimento = Vector2.down;
                 break;
             case PosicaoDoSpawner.Baixo:
-                posX = Random.Range(bounds.min.x, bounds.max.x);
-                posicaoSpawn = new Vector2(posX, transform.position.y);
                 direcaoMovimento = Vector2.up;
                 break;
             case PosicaoDoSpawner.Direita:
-                posY = Random.Range(bounds.min.y, bounds.max.y);
-                posicaoSpawn = new Vector2(transform.position.x, posY);
                 direcaoMovimento = Vector2.left;
                 break;
             case PosicaoDoSpawner.Esquerda:
-                posY = Random.Range(bounds.min.y, bounds.max.y);
-                posicaoSpawn = new Vector2(transform.position.x, posY);
                 direcaoMovimento = Vector2.right;
                 break;
 
-        }
+            }
 
-        GameObject novoInimigo = Instantiate(prefab, posicaoSpawn, Quaternion.identity);
+        float inclination = Random.Range(0, 360);
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, inclination));
+
+
+        GameObject novoInimigo = Instantiate(prefabSorteado, posicaoSpawn, rotation);
 
         MovimentoInimigo scriptDoInimigo = novoInimigo.GetComponent<MovimentoInimigo>();
 

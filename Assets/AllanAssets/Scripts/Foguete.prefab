@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5867140765235829485}
   - component: {fileID: 6795458089785503998}
   m_Layer: 0
-  m_Name: Passaro
+  m_Name: Foguete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.184, y: -1.066, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.47545186, y: 0.47545186, z: 0.47545186}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3142234267829418495, guid: 180a1717f6e00224d9fc8145d33a630c, type: 3}
+  m_Sprite: {fileID: -9186885640294507702, guid: 510b7683017337145ad45a8d183c8abf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,17 +124,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.004819393, y: -0.058057815}
+  m_Offset: {x: 0.0061195493, y: 0.0061197877}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.90625, y: 0.71875}
+    oldSize: {x: 1.12, y: 3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7859955, y: 0.4078712}
+  m_Size: {x: 1.2227715, y: 3.0971498}
   m_EdgeRadius: 0
 --- !u!50 &5867140765235829485
 Rigidbody2D:
