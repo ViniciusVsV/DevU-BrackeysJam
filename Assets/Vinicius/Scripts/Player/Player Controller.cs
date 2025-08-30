@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         transform.position = new Vector2(transform.position.x, crashY);
 
-        spriteRenderer.sprite = crashedSprite;
+        animator.Play("Crash");
     }
 
     public PlayerWeapon GetWeapon() { return playerWeapon; }

@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GroundReachedEffect : MonoBehaviour
@@ -55,6 +56,7 @@ public class GroundReachedEffect : MonoBehaviour
 
         cinemachineImpulseSource.GenerateImpulse(5f);
 
+        SpriteFlash.Instance.ApplyEffect(playerController.gameObject);
         ControllerRumble.Instance.ApplyEffect(lowFrequency, highFrequency, rumbleDuration);
 
         playerCrosshair.SetActive(false);

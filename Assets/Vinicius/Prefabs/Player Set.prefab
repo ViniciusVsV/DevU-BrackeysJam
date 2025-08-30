@@ -1043,7 +1043,7 @@ MonoBehaviour:
   lookDirection: {x: 0, y: 0}
   crashedSprite: {fileID: -1621669554466727391, guid: eb81138a13dca6e47a16fde5fb3287cd, type: 3}
   crashDuration: 0.3
-  crashY: -10
+  crashY: -10.8
   isDeactivated: 0
   isOnController: 0
 --- !u!114 &8692680157005380941

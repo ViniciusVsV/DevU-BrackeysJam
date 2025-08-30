@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Forest parallax vertical forest full_0: -4052951070596784730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public class BossController : MonoBehaviour
+public class BossController : MonoBehaviour, IDamageable
 {
     [Header("-----States-----")]
     [SerializeField] private Idle idleState;
@@ -12,6 +12,10 @@ public class BossController : MonoBehaviour
     [SerializeField] private RocketAttack rocketAttackState;
     [SerializeField] private Deactivate deactivateState;
     private StateMachine stateMachine;
+
+    [Header("-----Health-----")]
+    [SerializeField] private int maxHealth;
+    private int currentHealth;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -35,6 +39,8 @@ public class BossController : MonoBehaviour
         deactivateState.Setup(rb, transform, animator, this);
 
         stateMachine.Set(idleState);
+
+        currentHealth = maxHealth;
 
         isFacingRight = false;
         canTakeDamage = true;
@@ -76,5 +82,15 @@ public class BossController : MonoBehaviour
         canTakeDamage = false;
 
         stateMachine.Set(deactivateState);
+    }
+
+    public void TakeDamage(int damage, Vector2 direction)
+    {
+        currentHealth -= damage;
+
+        BossDamagedEffect.Instance.ApplyEffect(gameObject);
+
+        if (currentHealth <= 0)
+            Destroy(gameObject);
     }
 }
