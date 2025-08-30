@@ -4945,7 +4945,7 @@ MonoBehaviour:
   destructionDelay: 1
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 1408
   bulletHitParticles: {fileID: 7480924940041882761}
   bulletTrail: {fileID: 6595405178559249109}
   lowFrequency: 0.5

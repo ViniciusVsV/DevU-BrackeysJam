@@ -12,6 +12,7 @@ public class BossController : MonoBehaviour, IDamageable
     [SerializeField] private CameraLeave cameraLeaveState;
     [SerializeField] private RocketAttack rocketAttackState;
     [SerializeField] private Deactivate deactivateState;
+    [SerializeField] private GuidedRocketAttack guidedRocketAttackState;
     private StateMachine stateMachine;
 
     [Header("-----Health-----")]
@@ -45,6 +46,7 @@ public class BossController : MonoBehaviour, IDamageable
         cameraLeaveState.Setup(rb, transform, animator, this);
         rocketAttackState.Setup(rb, transform, animator, this);
         deactivateState.Setup(rb, transform, animator, this);
+        guidedRocketAttackState.Setup(rb, transform, animator, this);
 
         stateMachine.Set(idleState);
 
@@ -102,7 +104,7 @@ public class BossController : MonoBehaviour, IDamageable
                 stateMachine.Set(cameraLeaveState);
                 break;
             case 2:
-                stateMachine.Set(cameraLeaveState);
+                stateMachine.Set(guidedRocketAttackState);
                 break;
         }
 
