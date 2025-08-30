@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b0c72489f1bedd842967af2b46c5e4de
+guid: 805ec607d5bbd5d419c30d94a7bb6cd2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4052951070596784730
-    second: Forest parallax vertical forest full_0
+      213: 6993387868749140146
+    second: destroco_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Forest parallax vertical forest full_0
+      name: destroco_2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1900
-        height: 3450
+        x: 15
+        y: 12
+        width: 32
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ad1a09897601c7c0800000000000000
-      internalID: -4052951070596784730
+      spriteID: 2b0915dc6318d0160800000000000000
+      internalID: 6993387868749140146
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ad5e1507be5a6fd499da7b2d9ca9ce13
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Forest parallax vertical forest full_0: -4052951070596784730
+      destroco_2_0: 6993387868749140146
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

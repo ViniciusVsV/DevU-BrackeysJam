@@ -89,7 +89,11 @@ public class RandomSpawner : MonoBehaviour
 
             }
 
-        GameObject novoInimigo = Instantiate(prefabSorteado, posicaoSpawn, Quaternion.identity);
+        float inclination = Random.Range(0, 360);
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, inclination));
+
+
+        GameObject novoInimigo = Instantiate(prefabSorteado, posicaoSpawn, rotation);
 
         MovimentoInimigo scriptDoInimigo = novoInimigo.GetComponent<MovimentoInimigo>();
 
