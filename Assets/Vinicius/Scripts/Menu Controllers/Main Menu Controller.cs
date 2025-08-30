@@ -1,19 +1,26 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-    private TransitionScreenManager transitionScreenManager;
+    private PlaneBehaviour planeBehaviour;
+
+    [SerializeField] private Canvas canvas;
 
     void Start()
     {
-        transitionScreenManager = FindFirstObjectByType<TransitionScreenManager>();
+        planeBehaviour = FindFirstObjectByType<PlaneBehaviour>();
+
+        AudioController.Instance.PlayMenuMusic();
     }
 
     public void Play()
     {
-        transitionScreenManager.PlayEnd("Vinicius");
+        canvas.renderMode = RenderMode.WorldSpace;
+
+        planeBehaviour.TakeOff();
     }
 
     public void Exit()

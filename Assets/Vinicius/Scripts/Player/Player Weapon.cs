@@ -45,6 +45,8 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (shootCooldownTimer > Mathf.Epsilon)
             shootCooldownTimer -= Time.deltaTime;
+
+        playerAnimator.SetBool("hasAk", isAk);
     }
 
     public void Shoot()
@@ -74,7 +76,6 @@ public class PlayerWeapon : MonoBehaviour
     public void BuffWeapon(GameObject newProjectile, int damageIncrease, float cooldownReduction, int numberOfRounds)
     {
         isAk = true;
-        playerAnimator.Play("AK Idle");
 
         if (weaponRoutine != null)
         {
@@ -113,8 +114,6 @@ public class PlayerWeapon : MonoBehaviour
 
         weaponRoutine = null;
         isAk = false;
-
-        playerAnimator.Play("SMG Idle");
     }
 
     public void BuffCooldown(float cooldownReduction, float duration)

@@ -25,8 +25,6 @@ public class AudioController : MonoBehaviour
         }
         else
             Destroy(gameObject);
-
-        PlayMenuMusic();
     }
 
     public void PlayMenuMusic()

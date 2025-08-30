@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private TransitionScreenManager transitionScreenManager;
 
     [Header("-----Health-----")]
     [SerializeField] private int maxHealth;
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public bool isDeactivated;
     public bool isDead;
     public bool isOnController;
+    private bool hasBoots;
 
     private void Awake()
     {
@@ -66,12 +68,15 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Start()
     {
         heartsManager = FindFirstObjectByType<HeartsManager>();
+        transitionScreenManager = FindFirstObjectByType<TransitionScreenManager>();
     }
 
     private void Update()
     {
         if (isDeactivated || isDead)
             return;
+
+        animator.SetBool("hasBoots", hasBoots);
 
         if (invulnerabilityTimer > Mathf.Epsilon)
             invulnerabilityTimer -= Time.unscaledDeltaTime;
@@ -122,6 +127,11 @@ public class PlayerController : MonoBehaviour, IDamageable
             isOnController = true;
         else
             isOnController = false;
+    }
+
+    public void LeaveToMenu(InputAction.CallbackContext context)
+    {
+        transitionScreenManager.PlayEnd("Main Menu");
     }
 
     private void CheckFlip()
@@ -256,10 +266,14 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private IEnumerator MoveSpeedRoutine(float newMoveSpeed, float duration)
     {
+        hasBoots = true;
+
         currentMoveSpeed = newMoveSpeed;
 
         yield return new WaitForSeconds(duration);
 
         currentMoveSpeed = baseMoveSpeed;
+
+        hasBoots = false;
     }
 }

@@ -8,6 +8,8 @@ public class FinalMenuController : MonoBehaviour
     private void Awake()
     {
         transitionScreenManager = FindFirstObjectByType<TransitionScreenManager>();
+
+        AudioController.Instance.PlayMenuMusic();
     }
 
     private void Update()
