@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         currentMoveSpeed = baseMoveSpeed;
 
         isFacingRight = true;
+
+        AudioController.Instance.PlayGameMusic();
     }
 
     private void Start()
@@ -167,6 +169,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             moveToApply += direction * knockbackStrength;
             return;
         }
+
+        AudioController.Instance.PlayDamageTakenSound();
 
         invulnerabilityTimer = invulnerabilityDuration;
 

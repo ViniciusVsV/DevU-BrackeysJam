@@ -59,6 +59,11 @@ public class PlayerWeapon : MonoBehaviour
 
         Instantiate(currentProjectile, transform.position, shootRotation);
 
+        if (isAk)
+            AudioController.Instance.PlayAkShotSound();
+        else
+            AudioController.Instance.PlaySmgShotSound();
+
         StartCoroutine(MuzzleRoutine());
 
         shootCooldownTimer = currentCooldown;

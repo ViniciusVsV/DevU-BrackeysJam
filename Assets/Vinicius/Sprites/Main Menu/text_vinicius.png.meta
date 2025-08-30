@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 72b34c56ae5f7454eadb69b64004afef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5352989152649158828
+    second: text_vinicius_0
+  - first:
+      213: -8635188230655411302
+    second: text_vinicius_1
+  - first:
+      213: 4147587381081649676
+    second: text_vinicius_2
+  - first:
+      213: -7623672548926325071
+    second: text_vinicius_3
+  - first:
+      213: -173806696165907397
+    second: text_vinicius_4
+  - first:
+      213: 1309663260426042048
+    second: text_vinicius_5
+  - first:
+      213: -3073749173122516674
+    second: text_vinicius_6
+  - first:
+      213: -2089020123083068575
+    second: text_vinicius_7
+  - first:
+      213: -8794297435456753050
+    second: text_vinicius_8
+  - first:
+      213: 655787131818831387
+    second: text_vinicius_9
+  - first:
+      213: -3494344581249185400
+    second: text_vinicius_10
+  - first:
+      213: -5900853512145933676
+    second: text_vinicius_11
+  - first:
+      213: 2469963786317565519
+    second: text_vinicius_12
+  - first:
+      213: 1065531960298188834
+    second: text_vinicius_13
+  - first:
+      213: -2600754546951028711
+    second: text_vinicius_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: text_vinicius_0
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 866
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca02c22e543a94a40800000000000000
+      internalID: 5352989152649158828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_1
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 866
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b762f2e06a92880800000000000000
+      internalID: -8635188230655411302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_2
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 866
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02b34c8fb03f8930800000000000000
+      internalID: 4147587381081649676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_3
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 866
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be795d6536433690800000000000000
+      internalID: -7623672548926325071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_4
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 866
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34627f0bb3869df0800000000000000
+      internalID: -173806696165907397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_5
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 866
+        width: 17
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0caf215ebcbdc2210800000000000000
+      internalID: 1309663260426042048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_6
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 866
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39b1679969d755d0800000000000000
+      internalID: -3073749173122516674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_7
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 866
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16badf2244f4203e0800000000000000
+      internalID: -2089020123083068575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_8
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 866
+        width: 17
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662b87e931164f580800000000000000
+      internalID: -8794297435456753050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_9
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 866
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e65500ce2d91900800000000000000
+      internalID: 655787131818831387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_10
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 866
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 889c4dffd18918fc0800000000000000
+      internalID: -3494344581249185400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_11
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 866
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49aece8aef4fb1ea0800000000000000
+      internalID: -5900853512145933676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_12
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 329
+        width: 882
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e898b2af2174220800000000000000
+      internalID: 2469963786317565519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_13
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 339
+        width: 692
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22036662ca789ce00800000000000000
+      internalID: 1065531960298188834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_vinicius_14
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 519
+        width: 342
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9108009d48348ebd0800000000000000
+      internalID: -2600754546951028711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      text_vinicius_0: 5352989152649158828
+      text_vinicius_1: -8635188230655411302
+      text_vinicius_10: -3494344581249185400
+      text_vinicius_11: -5900853512145933676
+      text_vinicius_12: 2469963786317565519
+      text_vinicius_13: 1065531960298188834
+      text_vinicius_14: -2600754546951028711
+      text_vinicius_2: 4147587381081649676
+      text_vinicius_3: -7623672548926325071
+      text_vinicius_4: -173806696165907397
+      text_vinicius_5: 1309663260426042048
+      text_vinicius_6: -3073749173122516674
+      text_vinicius_7: -2089020123083068575
+      text_vinicius_8: -8794297435456753050
+      text_vinicius_9: 655787131818831387
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

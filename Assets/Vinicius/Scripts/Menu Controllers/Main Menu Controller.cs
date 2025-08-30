@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    private TransitionScreenManager transitionScreenManager;
+
     void Start()
     {
-        AudioController.Instance.PlayTestMusic();
+        transitionScreenManager = FindFirstObjectByType<TransitionScreenManager>();
     }
 
     public void Play()
     {
-        SceneManager.LoadScene("Vinicius");
+        transitionScreenManager.PlayEnd("Vinicius");
     }
 
     public void Exit()

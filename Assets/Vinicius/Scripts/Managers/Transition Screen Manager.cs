@@ -9,8 +9,7 @@ public class TransitionScreenManager : MonoBehaviour
 
     private void Awake()
     {
-        if (SceneManager.GetActiveScene().name != "Vinicius")
-            animator.Play("Start");
+        animator.Play("Start");
     }
 
     public void PlayEnd(string newScene)
