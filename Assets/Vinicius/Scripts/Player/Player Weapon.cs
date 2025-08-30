@@ -19,12 +19,20 @@ public class PlayerWeapon : MonoBehaviour
     private GameObject currentProjectile;
     private int remainingRounds;
 
+    [Header("-----Muzzle Flash-----")]
+    [SerializeField] private SpriteRenderer muzzleSpriteRenderer;
+    [SerializeField] private Sprite[] smgMuzzles;
+    [SerializeField] private Sprite[] akMuzzles;
+    [SerializeField] private float flashDuration;
+
+    [SerializeField] private Animator playerAnimator;
     [SerializeField] private Transform crosshairPosition;
-    [SerializeField] private ParticleSystem muzzleFlash;
     private Vector2 shootDirection;
     private Quaternion shootRotation;
 
     private Coroutine weaponRoutine;
+
+    public bool isAk;
 
     private void Awake()
     {
@@ -49,6 +57,8 @@ public class PlayerWeapon : MonoBehaviour
 
         Instantiate(currentProjectile, transform.position, shootRotation);
 
+        StartCoroutine(MuzzleRoutine());
+
         shootCooldownTimer = currentCooldown;
 
         remainingRounds--;
@@ -56,6 +66,9 @@ public class PlayerWeapon : MonoBehaviour
 
     public void BuffWeapon(GameObject newProjectile, int damageIncrease, float cooldownReduction, int numberOfRounds)
     {
+        isAk = true;
+        playerAnimator.Play("AK Idle");
+
         if (weaponRoutine != null)
         {
             remainingRounds = numberOfRounds;
@@ -92,6 +105,9 @@ public class PlayerWeapon : MonoBehaviour
             currentCooldown = baseCooldown;
 
         weaponRoutine = null;
+        isAk = false;
+
+        playerAnimator.Play("SMG Idle");
     }
 
     public void BuffCooldown(float cooldownReduction, float duration)
@@ -126,5 +142,16 @@ public class PlayerWeapon : MonoBehaviour
         currentDamage -= damageIncrease;
         if (currentDamage < baseDamage)
             currentDamage = baseDamage;
+    }
+
+    private IEnumerator MuzzleRoutine()
+    {
+        muzzleSpriteRenderer.sprite = isAk ?
+        akMuzzles[Random.Range(0, akMuzzles.Length)] :
+        smgMuzzles[Random.Range(0, smgMuzzles.Length)];
+
+        yield return new WaitForSeconds(flashDuration);
+
+        muzzleSpriteRenderer.sprite = null;
     }
 }

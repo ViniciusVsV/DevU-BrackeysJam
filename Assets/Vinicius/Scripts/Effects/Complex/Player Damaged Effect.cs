@@ -19,23 +19,23 @@ public class PlayerDamagedEffect : MonoBehaviour
         Instance = this;
     }
 
-    public void ApplyEffect(GameObject gameObject, float invulnerabilityDuration, Vector2 direction)
+    public void ApplyEffect(GameObject newObject, float invulnerabilityDuration, Vector2 direction)
     {
         if (coroutine != null)
             StopCoroutine(coroutine);
 
-        coroutine = StartCoroutine(Routine(gameObject, invulnerabilityDuration, direction));
+        coroutine = StartCoroutine(Routine(newObject, invulnerabilityDuration, direction));
     }
 
-    private IEnumerator Routine(GameObject gameObject, float invulnerabilityDuration, Vector2 direction)
+    private IEnumerator Routine(GameObject newObject, float invulnerabilityDuration, Vector2 direction)
     {
-        SpriteFlash.Instance.ApplyEffect(gameObject);
+        SpriteFlash.Instance.ApplyEffect(newObject);
         HitStop.Instance.ApplyEffect(hitStopDuration);
         CameraShake.Instance.ApplyEffect(false, direction);
         ControllerRumble.Instance.ApplyEffect(lowFrequency, highFrequency, rumbleDuration);
 
         yield return new WaitForSeconds(SpriteFlash.Instance.GetDuration());
 
-        SpriteBlink.Instance.ApplyEffect(gameObject, invulnerabilityDuration);
+        SpriteBlink.Instance.ApplyEffect(newObject, invulnerabilityDuration);
     }
 }

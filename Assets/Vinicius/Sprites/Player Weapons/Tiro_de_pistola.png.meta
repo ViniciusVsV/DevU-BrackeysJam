@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2846998d8047df14abeb3ded5d1423a3
+guid: 03c8a7d01f330a4488f3523e7c8908d4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8902439325368798568
-    second: coracionoofcial_0
+      213: -1365405167365165805
+    second: Tiro_de_pistola_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coracionoofcial_0
+      name: Tiro_de_pistola_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 4
-        width: 21
-        height: 19
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 892bce8c99e247480800000000000000
-      internalID: -8902439325368798568
+      spriteID: 31d67b80c3b1d0de0800000000000000
+      internalID: -1365405167365165805
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c2c49651b3bcca6498f9e7af9fe78152
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coracionoofcial_0: -8902439325368798568
+      Tiro_de_pistola_0: -1365405167365165805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

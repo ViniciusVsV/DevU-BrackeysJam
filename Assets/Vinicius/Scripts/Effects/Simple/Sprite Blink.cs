@@ -7,8 +7,8 @@ public class SpriteBlink : MonoBehaviour
 
     [SerializeField] private int numberOfBlinks;
     [SerializeField] private Color blinkColor;
+    [SerializeField] private Color baseColor;
     private SpriteRenderer spriteRenderer;
-    private Color baseColor;
 
     private Coroutine coroutine;
 
@@ -17,18 +17,20 @@ public class SpriteBlink : MonoBehaviour
         Instance = this;
     }
 
-    public void ApplyEffect(GameObject gameObject, float duration)
+    public void ApplyEffect(GameObject newObject, float duration)
     {
         if (coroutine != null)
+        {
             StopCoroutine(coroutine);
+            spriteRenderer.color = baseColor;
+        }
 
-        coroutine = StartCoroutine(Routine(gameObject, duration));
+        coroutine = StartCoroutine(Routine(newObject, duration));
     }
 
-    private IEnumerator Routine(GameObject gameObject, float duration)
+    private IEnumerator Routine(GameObject newObject, float duration)
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        baseColor = spriteRenderer.color;
+        spriteRenderer = newObject.GetComponent<SpriteRenderer>();
 
         float elapsedTime = 0f;
         float elapsedPercentage;

@@ -17,6 +17,8 @@ public class AltitudeManager : MonoBehaviour
     private float[] startY;
     private float[] endY;
 
+    public bool hasStopped;
+
     private void Awake()
     {
         elapsedTime = 0f;
@@ -40,6 +42,9 @@ public class AltitudeManager : MonoBehaviour
 
     private void Update()
     {
+        if (hasStopped)
+            return;
+
         elapsedTime += Time.deltaTime;
         float progress = Mathf.Clamp01(elapsedTime / totalDuration);
 

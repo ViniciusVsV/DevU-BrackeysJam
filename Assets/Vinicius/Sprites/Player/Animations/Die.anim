@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crash
+  m_Name: Die
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1587696442710823068, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
-    - time: 0.18333334
-      value: {fileID: -2503047931856396962, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
-    - time: 0.4
-      value: {fileID: -3195355715162398976, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
-    - time: 0.5833333
-      value: {fileID: -3195355715162398976, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
+      value: {fileID: -1621669554466727391, guid: eb81138a13dca6e47a16fde5fb3287cd, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1587696442710823068, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
-    - {fileID: -2503047931856396962, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
-    - {fileID: -3195355715162398976, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
-    - {fileID: -3195355715162398976, guid: 4499b0836463f664c96956d7c3f938fc, type: 3}
+    - {fileID: -1621669554466727391, guid: eb81138a13dca6e47a16fde5fb3287cd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

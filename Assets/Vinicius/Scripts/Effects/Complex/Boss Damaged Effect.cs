@@ -9,8 +9,8 @@ public class BossDamagedEffect : MonoBehaviour
         Instance = this;
     }
 
-    public void ApplyEffect(GameObject gameObject)
+    public void ApplyEffect(GameObject newObject)
     {
-        SpriteFlash.Instance.ApplyEffect(gameObject);
+        SpriteFlash.Instance.ApplyEffect(newObject);
     }
 }

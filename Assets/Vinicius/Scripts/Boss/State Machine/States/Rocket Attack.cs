@@ -16,4 +16,9 @@ public class RocketAttack : BaseState
 
         controller.SetDashState();
     }
+
+    public override void StateExit()
+    {
+        controller.canTakeDamage = true;
+    }
 }

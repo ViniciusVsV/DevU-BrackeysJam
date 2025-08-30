@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour, IDamageable
 {
+    private Collider2D col;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -38,11 +39,18 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private float crashDuration;
     [SerializeField] private float crashY;
 
+    [Header("-----Death-----")]
+    [SerializeField] private float deathDuration;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float leaveCameraSpeed;
+
     public bool isDeactivated;
+    public bool isDead;
     public bool isOnController;
 
     private void Awake()
     {
+        col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -60,7 +68,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (isDeactivated)
+        if (isDeactivated || isDead)
             return;
 
         if (invulnerabilityTimer > Mathf.Epsilon)
@@ -82,7 +90,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (Mathf.Abs(moveToApply.x) <= 0.01f && Mathf.Abs(moveToApply.y) <= 0.01f)
             moveToApply = Vector2.zero;
 
-        if (isDeactivated)
+        if (isDeactivated || isDead)
             return;
 
         rb.linearVelocity = moveStrength;
@@ -168,14 +176,37 @@ public class PlayerController : MonoBehaviour, IDamageable
         currentHealth -= damage;
 
         if (currentHealth <= 0)
-            Die();
+            Die(direction);
         else
             moveToApply += direction * knockbackStrength;
     }
 
-    private void Die()
+    private void Die(Vector2 direction)
     {
-        Destroy(gameObject);
+        isDead = true;
+
+        col.enabled = false;
+
+        PlayerDiedEffect.Instance.ApplyEffect(deathDuration);
+
+        StartCoroutine(DieRoutine(direction));
+    }
+    private IEnumerator DieRoutine(Vector2 direction)
+    {
+        animator.Play("Die");
+
+        rb.linearVelocity = leaveCameraSpeed * direction;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < deathDuration)
+        {
+            transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
     }
 
     public float Crash()
@@ -202,8 +233,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             yield return null;
         }
 
-        transform.position = new Vector2(transform.position.x, crashY);
-
+        transform.SetPositionAndRotation(new Vector2(transform.position.x, crashY), Quaternion.Euler(new Vector3(0f, 0f, -75f)));
         animator.Play("Crash");
     }
 
