@@ -25,6 +25,11 @@ public class HeartsManager : MonoBehaviour
         heartAnimators[index].Play("Deactivate");
     }
 
+    public void ActivateHeart(int index)
+    {
+        heartAnimators[index].Play("Activate");
+    }
+
     public void DeactivateAll()
     {
         foreach (var animator in heartAnimators)

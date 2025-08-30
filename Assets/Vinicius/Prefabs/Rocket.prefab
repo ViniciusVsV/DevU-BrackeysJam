@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionCol: {fileID: 5965805620842472189}
-  moveSpeed: 5
+  moveSpeed: 15
   rotateSpeed: 0
   maxHealth: 1
 --- !u!1 &8133176063813849367
