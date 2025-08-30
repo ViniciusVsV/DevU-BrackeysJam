@@ -276,4 +276,14 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         hasBoots = false;
     }
+
+    public void BuffAddHealth(int addedHP)
+    {
+        if (currentHealth < 3)
+        {
+            currentHealth += addedHP;
+            heartsManager.ActivateHeart(maxHealth - currentHealth);
+        }
+    }
+
 }

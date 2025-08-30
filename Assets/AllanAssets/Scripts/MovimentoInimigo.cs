@@ -35,6 +35,6 @@ public class MovimentoInimigo : MonoBehaviour
     {
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime * random);
 
-        rb.linearVelocity = moveSpeed * direcaoMovimento;
+        transform.Translate(direcaoMovimento * moveSpeed * Time.deltaTime, Space.World);
     }
 }
