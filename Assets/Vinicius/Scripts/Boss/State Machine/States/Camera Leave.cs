@@ -43,7 +43,5 @@ public class CameraLeave : BaseState
     public override void StateExit()
     {
         rb.linearVelocity = Vector2.zero;
-
-        controller.canTakeDamage = true;
     }
 }

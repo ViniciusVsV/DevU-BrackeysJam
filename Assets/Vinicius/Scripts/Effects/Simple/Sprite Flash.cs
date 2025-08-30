@@ -9,7 +9,7 @@ public class SpriteFlash : MonoBehaviour
 
     [SerializeField] private float duration;
     [SerializeField] private Material flashMaterial;
-    private Material currentMaterial;
+    [SerializeField] private Material baseMaterial;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -17,24 +17,25 @@ public class SpriteFlash : MonoBehaviour
         Instance = this;
     }
 
-    public void ApplyEffect(GameObject gameObject)
+    public void ApplyEffect(GameObject newObject)
     {
         if (coroutine != null)
+        {
             StopCoroutine(coroutine);
+            spriteRenderer.material = baseMaterial;
+        }
 
-        coroutine = StartCoroutine(Routine(gameObject));
+        coroutine = StartCoroutine(Routine(newObject));
     }
 
-    private IEnumerator Routine(GameObject gameObject)
+    private IEnumerator Routine(GameObject newObject)
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        currentMaterial = spriteRenderer.material;
-
+        spriteRenderer = newObject.GetComponent<SpriteRenderer>();
         spriteRenderer.material = flashMaterial;
 
         yield return new WaitForSeconds(duration);
 
-        spriteRenderer.material = currentMaterial;
+        spriteRenderer.material = baseMaterial;
     }
 
     public float GetDuration() { return duration; }

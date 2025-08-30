@@ -23,6 +23,9 @@ public class CameraFollowBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (playerController.isDead)
+            return;
+
         if (playerController.isDeactivated)
         {
             transform.position = new Vector2(0f, playerTransform.position.y);
