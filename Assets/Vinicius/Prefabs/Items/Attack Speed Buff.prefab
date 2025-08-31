@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.02, y: -4.18, z: -0.07248374}
-  m_LocalScale: {x: 4.2, y: 4.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,8 +82,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00870657, y: 0}
-  m_Radius: 0.11591355
+  m_Offset: {x: -0.021757126, y: -0.036847234}
+  m_Radius: 0.30705822
 --- !u!212 &5430344812344172574
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -128,12 +128,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1216430551394687501, guid: 6102064898d8f5444b9b8bfd0f5adbd6, type: 3}
-  m_Color: {r: 0, g: 0.21568632, b: 1, a: 1}
+  m_Sprite: {fileID: -1216430551394687501, guid: c804fe39630c2424f9351517a441315c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.53125, y: 0.53125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

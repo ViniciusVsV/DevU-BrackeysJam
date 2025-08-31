@@ -17,9 +17,8 @@ public class RandomSpawner : MonoBehaviour
 
     [SerializeField] private PosicaoDoSpawner posSpawner;
 
-    [SerializeField] private float intervaloInicial = 3.0f;
-    [SerializeField] private float intervaloMinimo = 0.5f;
-    [SerializeField] private float fatorDeDificuldade = 0.98f;
+    [SerializeField] private float intervaloInicial;
+    [SerializeField] private float intervaloMinimo;
     private float cronometroParaSpawn;
 
     void Awake()
@@ -43,7 +42,8 @@ public class RandomSpawner : MonoBehaviour
 
             float tempoDecorrido = Time.timeSinceLevelLoad;
 
-            float intervaloVariavel = (intervaloInicial - intervaloMinimo) * Mathf.Pow(fatorDeDificuldade, tempoDecorrido);
+            // Exemplo: intervalo diminui de forma logarítmica
+            float intervaloVariavel = (intervaloInicial - intervaloMinimo) / (1f + Mathf.Log(tempoDecorrido + 1f));
             float intervaloAtual = intervaloMinimo + intervaloVariavel;
 
             cronometroParaSpawn = intervaloAtual;
