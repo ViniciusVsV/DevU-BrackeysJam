@@ -2563,7 +2563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2726013480161980318, guid: bb163dabef4d5f142b2de1b909cf3e01, type: 3}
       propertyPath: intervaloMinimo
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2726013480161980318, guid: bb163dabef4d5f142b2de1b909cf3e01, type: 3}
       propertyPath: intervaloInicial
@@ -2571,7 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2726013480161980318, guid: bb163dabef4d5f142b2de1b909cf3e01, type: 3}
       propertyPath: listaDePrefabs.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2726013480161980318, guid: bb163dabef4d5f142b2de1b909cf3e01, type: 3}
       propertyPath: 'listaDePrefabs.Array.data[0]'
@@ -2597,6 +2597,14 @@ PrefabInstance:
       propertyPath: 'listaDePrefabs.Array.data[5]'
       value: 
       objectReference: {fileID: 8529724787484199836, guid: 70bf60c8c02f25d4c9148e82ca41719f, type: 3}
+    - target: {fileID: 2726013480161980318, guid: bb163dabef4d5f142b2de1b909cf3e01, type: 3}
+      propertyPath: 'listaDePrefabs.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8529724787484199836, guid: 8548544ead5b4ca4c862d7c305530e3b, type: 3}
+    - target: {fileID: 2726013480161980318, guid: bb163dabef4d5f142b2de1b909cf3e01, type: 3}
+      propertyPath: 'listaDePrefabs.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8529724787484199836, guid: ab79fa8f76f6f04429a06a77eabdadfb, type: 3}
     - target: {fileID: 5774698995365275339, guid: bb163dabef4d5f142b2de1b909cf3e01, type: 3}
       propertyPath: m_LocalScale.y
       value: 30
@@ -12158,6 +12166,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 161912286804014100, guid: b3e1eed61d9b4f345bd531c7c9f3d7b6, type: 3}
+      propertyPath: baseMoveSpeed
+      value: 6.5
+      objectReference: {fileID: 0}
     - target: {fileID: 290849240334163252, guid: b3e1eed61d9b4f345bd531c7c9f3d7b6, type: 3}
       propertyPath: m_Name
       value: Player Set

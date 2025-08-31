@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownReduction: 0.1
-  buffDuration: 4
+  buffDuration: 5
 --- !u!58 &8488418583408763466
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageIncrease: 1
-  buffDuration: 4
+  buffDuration: 5
 --- !u!58 &7422168277019436069
 CircleCollider2D:
   m_ObjectHideFlags: 0

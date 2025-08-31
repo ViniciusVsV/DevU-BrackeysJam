@@ -60,6 +60,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7750844338586916586}
     m_Modifications:
+    - target: {fileID: 3241144432280416547, guid: ab79fa8f76f6f04429a06a77eabdadfb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7750844338586916586, guid: ab79fa8f76f6f04429a06a77eabdadfb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.29
@@ -104,7 +108,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5867140765235829485, guid: ab79fa8f76f6f04429a06a77eabdadfb, type: 3}
+    - {fileID: 6795458089785503998, guid: ab79fa8f76f6f04429a06a77eabdadfb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -122,6 +128,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7750844338586916586}
     m_Modifications:
+    - target: {fileID: 3241144432280416547, guid: 8548544ead5b4ca4c862d7c305530e3b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7750844338586916586, guid: 8548544ead5b4ca4c862d7c305530e3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1
@@ -166,7 +176,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5867140765235829485, guid: 8548544ead5b4ca4c862d7c305530e3b, type: 3}
+    - {fileID: 6795458089785503998, guid: 8548544ead5b4ca4c862d7c305530e3b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
