@@ -10761,7 +10761,7 @@ MonoBehaviour:
   deactivateState: {fileID: 961489850}
   guidedRocketAttackState: {fileID: 93683657}
   deathState: {fileID: 593925013}
-  maxHealth: 310
+  maxHealth: 330
   timeBetweenAttacks: 5
   maxTimeVariation: 1
   probabilityDecrease: 0.15
