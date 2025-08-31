@@ -152,9 +152,12 @@ MonoBehaviour:
   effectSource: {fileID: 1711457352}
   menuMusic: {fileID: 8300000, guid: db34ddcf15ce6d8478a80d8c6239c006, type: 3}
   gameMusic: {fileID: 8300000, guid: 9f9242bfdf47c4240b8374ca4ddac3f4, type: 3}
-  smgGunshot: {fileID: 8300000, guid: f0b9d6503c527d041a40ffa30ff3db2f, type: 3}
+  smgGunshot: {fileID: 8300000, guid: 1c9d08d2fa17dfc4aadbd48a72352598, type: 3}
   akGunshot: {fileID: 8300000, guid: cee9e94aa6045c0419420c06eced8a0f, type: 3}
-  damageTaken: {fileID: 8300000, guid: e2d01d6327b2502458239346cdaa6223, type: 3}
+  damageTaken: {fileID: 8300000, guid: ef9c87be9f7a8fd4e90ae0f868e7c006, type: 3}
+  explosion: {fileID: 8300000, guid: 81dfeee6599b5e940bb326162275f3c8, type: 3}
+  powerUp: {fileID: 8300000, guid: 2caae6685fc431f48898bc3c6ef4c02c, type: 3}
+  fadeDuration: 1.5
 --- !u!4 &47844032
 Transform:
   m_ObjectHideFlags: 0
@@ -2101,6 +2104,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &415212004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415212005}
+  - component: {fileID: 415212006}
+  m_Layer: 0
+  m_Name: Fly Away Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415212005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415212004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1850617796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &415212006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415212004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c4516c704c5c5468b3e51cbcf9cf5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windParticles: {fileID: 904603617}
 --- !u!4 &437987192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1158537879748041707, guid: 9ef1412767e493f47beb99e9a21799c4, type: 3}
@@ -2640,6 +2688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 10
   endDelay: 3
+  jetpackPrefab: {fileID: 4515717318523702435, guid: 4b3a70ef3d81b5846aa8f25fe0991df1, type: 3}
 --- !u!1001 &616432800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11617,6 +11666,7 @@ Transform:
   - {fileID: 1992961148}
   - {fileID: 1746870232}
   - {fileID: 1900291628}
+  - {fileID: 415212005}
   m_Father: {fileID: 1445907339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895756561
@@ -12100,10 +12150,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 161912286804014100, guid: b3e1eed61d9b4f345bd531c7c9f3d7b6, type: 3}
-      propertyPath: maxHealth
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 290849240334163252, guid: b3e1eed61d9b4f345bd531c7c9f3d7b6, type: 3}
       propertyPath: m_Name
       value: Player Set

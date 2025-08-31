@@ -21,5 +21,6 @@ public class ExplosionEffect : MonoBehaviour
 
         CameraShake.Instance.ApplyEffect(true, Vector2.zero);
         ControllerRumble.Instance.ApplyEffect(lowFrequency, highFrequency, rumbleDuration);
+        AudioController.Instance.PlayExplosionSound();
     }
 }
