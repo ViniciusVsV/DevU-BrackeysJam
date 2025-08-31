@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
@@ -15,6 +16,8 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip smgGunshot;
     [SerializeField] private AudioClip akGunshot;
     [SerializeField] private AudioClip damageTaken;
+
+    [SerializeField] private float fadeDuration = 1.5f;
 
     private void Awake()
     {
@@ -52,5 +55,26 @@ public class AudioController : MonoBehaviour
     private void PlayEffect(AudioClip clip)
     {
         effectSource.PlayOneShot(clip);
+    }
+
+    public void StopMusic()
+    {
+        StartCoroutine(FadeOutMusic());
+    }
+
+    private IEnumerator FadeOutMusic()
+    {
+        float startVolume = musicSource.volume;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / fadeDuration);
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.volume = startVolume;
     }
 }

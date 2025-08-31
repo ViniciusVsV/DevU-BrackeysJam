@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splineToFollow: {fileID: 171750068}
   objectToMove: {fileID: 2005669419}
-  fallDuration: 5
+  fallDuration: 1.5
 --- !u!114 &171750068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11789,6 +11789,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windParticles: {fileID: 904603617}
   playerCrosshair: {fileID: 248119384}
+--- !u!4 &2005669419 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1229500214923597399, guid: b3e1eed61d9b4f345bd531c7c9f3d7b6, type: 3}
+  m_PrefabInstance: {fileID: 6233636233171444273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2060940390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11822,11 +11827,6 @@ Transform:
   - {fileID: 1711457353}
   m_Father: {fileID: 47844032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2005669419 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1229500214923597399, guid: b3e1eed61d9b4f345bd531c7c9f3d7b6, type: 3}
-  m_PrefabInstance: {fileID: 6233636233171444273}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2066128571
 GameObject:
   m_ObjectHideFlags: 0

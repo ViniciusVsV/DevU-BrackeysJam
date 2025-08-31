@@ -25,6 +25,9 @@ public class CutsceneController : MonoBehaviour
         {
             cinemachineCameras[i].Priority = i + 2;
 
+            if (i == cinemachineCameras.Length - 1)
+                AudioController.Instance.StopMusic();
+
             yield return new WaitForSeconds(imageDuration);
         }
 
