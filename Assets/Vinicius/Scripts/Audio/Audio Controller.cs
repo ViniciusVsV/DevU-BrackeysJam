@@ -16,8 +16,13 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip smgGunshot;
     [SerializeField] private AudioClip akGunshot;
     [SerializeField] private AudioClip damageTaken;
+    [SerializeField] private AudioClip explosion;
+    [SerializeField] private AudioClip powerUp;
 
     [SerializeField] private float fadeDuration = 1.5f;
+
+    private Coroutine fadeRoutine;
+    float startVolume;
 
     private void Awake()
     {
@@ -51,6 +56,8 @@ public class AudioController : MonoBehaviour
     public void PlaySmgShotSound() => PlayEffect(smgGunshot);
     public void PlayAkShotSound() => PlayEffect(akGunshot);
     public void PlayDamageTakenSound() => PlayEffect(damageTaken);
+    public void PlayExplosionSound() => PlayEffect(explosion);
+    public void PlayPowerUpSound() => PlayEffect(powerUp);
 
     private void PlayEffect(AudioClip clip)
     {
@@ -59,12 +66,18 @@ public class AudioController : MonoBehaviour
 
     public void StopMusic()
     {
-        StartCoroutine(FadeOutMusic());
+        if (fadeRoutine != null)
+        {
+            StopCoroutine(fadeRoutine);
+            musicSource.volume = startVolume;
+        }
+
+        fadeRoutine = StartCoroutine(FadeOutMusic());
     }
 
     private IEnumerator FadeOutMusic()
     {
-        float startVolume = musicSource.volume;
+        startVolume = musicSource.volume;
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)

@@ -18,6 +18,7 @@ public class HealthBuff : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerController = other.GetComponent<PlayerController>();
+            AudioController.Instance.PlayPowerUpSound();
 
             playerController.BuffAddHealth(hpToHeal);
 

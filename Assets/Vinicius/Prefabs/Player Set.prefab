@@ -1146,6 +1146,8 @@ MonoBehaviour:
   deathDuration: 3
   rotationSpeed: 360
   leaveCameraSpeed: 15
+  flyAwaySpeed: 7
+  flyAwayDuration: 3
   isDeactivated: 0
   isDead: 0
   isOnController: 0

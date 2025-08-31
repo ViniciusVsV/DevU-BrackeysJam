@@ -20,6 +20,7 @@ public class DamageBuff : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             col.enabled = false;
+            AudioController.Instance.PlayPowerUpSound();
 
             playerWeapon = other.GetComponent<PlayerController>().GetWeapon();
 

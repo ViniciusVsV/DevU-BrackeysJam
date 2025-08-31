@@ -19,8 +19,9 @@ public class AttackSpeedBuff : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Teste");
             col.enabled = false;
+
+            AudioController.Instance.PlayPowerUpSound();
 
             playerWeapon = other.GetComponent<PlayerController>().GetWeapon();
 

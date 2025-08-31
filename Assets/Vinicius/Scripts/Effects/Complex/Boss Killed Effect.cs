@@ -14,7 +14,6 @@ public class BossKilledEffect : MonoBehaviour
 
     public void ApplyEffect()
     {
-
-        transitionScreenManager.PlayEnd("Victory Screen");
+        CameraShake.Instance.ApplyEffect(false, Vector2.zero);
     }
 }

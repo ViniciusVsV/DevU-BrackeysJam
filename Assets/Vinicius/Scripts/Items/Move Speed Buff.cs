@@ -22,6 +22,7 @@ public class MoveSpeedBuff : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             col.enabled = false;
+            AudioController.Instance.PlayPowerUpSound();
 
             playerController = other.GetComponent<PlayerController>();
 

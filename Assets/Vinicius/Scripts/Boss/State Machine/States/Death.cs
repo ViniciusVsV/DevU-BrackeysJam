@@ -6,6 +6,8 @@ public class Death : BaseState
     [SerializeField] private float fallSpeed;
     [SerializeField] private float endDelay;
 
+    [SerializeField] private GameObject jetpackPrefab;
+
     private AltitudeManager altitudeManager;
 
     private void Awake()
@@ -17,21 +19,13 @@ public class Death : BaseState
     {
         altitudeManager.hasStopped = true;
 
-        StartCoroutine(Routine());
+        BossKilledEffect.Instance.ApplyEffect();
+
+        Instantiate(jetpackPrefab, transform.position, Quaternion.identity);
     }
 
     public override void StateFixedUpdate()
     {
         rb.linearVelocity = fallSpeed * Vector2.down;
     }
-
-    private IEnumerator Routine()
-    {
-        yield return new WaitForSeconds(endDelay);
-
-        BossKilledEffect.Instance.ApplyEffect();
-    }
-    //Soltar a jetpack (opcional)
-
-    //Cair até a morte
 }

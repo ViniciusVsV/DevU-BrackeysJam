@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float leaveCameraSpeed;
 
+    [Header("----Fly Away-----")]
+    [SerializeField] private float flyAwaySpeed;
+    [SerializeField] private float flyAwayDuration;
+
     public bool isDeactivated;
     public bool isDead;
     public bool isOnController;
@@ -174,6 +178,9 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage, Vector2 direction)
     {
+        if (isDeactivated)
+            return;
+
         if (invulnerabilityTimer > Mathf.Epsilon)
         {
             moveToApply += direction * knockbackStrength;
@@ -251,8 +258,24 @@ public class PlayerController : MonoBehaviour, IDamageable
         transform.SetPositionAndRotation(new Vector2(transform.position.x, crashY), Quaternion.Euler(new Vector3(0f, 0f, -75f)));
         transform.localScale = new Vector2(1, 1);
         animator.Play("Crash");
+    }
 
-        yield return new WaitForSeconds(2f);
+    public void FlyAway()
+    {
+        isDeactivated = true;
+        col.enabled = false;
+
+        FlyAwayEffect.Instance.ApplyEffect(flyAwayDuration);
+
+        StartCoroutine(FlyAwayRoutine());
+    }
+    private IEnumerator FlyAwayRoutine()
+    {
+        animator.Play("Fly With Jetpack");
+
+        rb.linearVelocity = new Vector2(isFacingRight ? 1f : -1f, 0.4f) * flyAwaySpeed;
+
+        yield return new WaitForSeconds(flyAwayDuration);
     }
 
     public PlayerWeapon GetWeapon() { return playerWeapon; }
