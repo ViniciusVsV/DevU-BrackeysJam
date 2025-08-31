@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Vinicius/Scenes/Main Menu.unity
     guid: 1ff0ca8d8a52fc4418c79b14db3bed87
   - enabled: 1
+    path: Assets/Vinicius/Scenes/Cutscene.unity
+    guid: 89fd45d4ca5a4c640acde529f2f17745
+  - enabled: 1
     path: Assets/Vinicius/Scenes/Vinicius.unity
     guid: a3e556a3404bbe244a55af20af63dd2e
   - enabled: 1

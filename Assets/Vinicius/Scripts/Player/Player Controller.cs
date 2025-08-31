@@ -61,14 +61,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         currentMoveSpeed = baseMoveSpeed;
 
         isFacingRight = true;
-
-        AudioController.Instance.PlayGameMusic();
     }
 
     private void Start()
     {
         heartsManager = FindFirstObjectByType<HeartsManager>();
         transitionScreenManager = FindFirstObjectByType<TransitionScreenManager>();
+
+        AudioController.Instance.PlayGameMusic();
     }
 
     private void Update()

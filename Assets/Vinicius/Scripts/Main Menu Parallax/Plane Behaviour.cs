@@ -58,6 +58,6 @@ public class PlaneBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(transitionDelay);
 
-        transitionScreenManager.PlayEnd("Vinicius");
+        transitionScreenManager.PlayEnd("Cutscene");
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 65c97c74475315741a6b59084a706e05
+guid: 6dda207a215a89a42bf57156682ccd72
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -981651208076618463
-    second: tamm-cat_0
+      213: -128900520000545121
+    second: cutscene_1-export_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tamm-cat_0
+      name: cutscene_1-export_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 220
-        height: 195
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12592416d697062f0800000000000000
-      internalID: -981651208076618463
+      spriteID: f9e1106f8ad063ef0800000000000000
+      internalID: -128900520000545121
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tamm-cat_0: -981651208076618463
+      cutscene_1-export_0: -128900520000545121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

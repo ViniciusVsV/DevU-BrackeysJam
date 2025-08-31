@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a04cba37b33bc2c4d9f1a51628388c55
+guid: 99494437cd6cdbf458f2bd892062cf88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6963322998463068953
-    second: maxresdefault_0
+      213: 3446336031353936678
+    second: cutscene_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: maxresdefault_0
+      name: cutscene_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1280
-        height: 720
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91bf2b3bf51b2a060800000000000000
-      internalID: 6963322998463068953
+      spriteID: 62b1b7d6c58d3df20800000000000000
+      internalID: 3446336031353936678
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      maxresdefault_0: 6963322998463068953
+      cutscene_2_0: 3446336031353936678
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
