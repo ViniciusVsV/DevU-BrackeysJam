@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "DevU-BrackeysJam.sln"
+    "dotnet.defaultSolution": "DevU-BrackeysJam.slnx"
 }
